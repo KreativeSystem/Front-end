@@ -1,0 +1,519 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+/*HEADER*/
+/* .container-fluid img{
+  padding-left: 30px;
+}
+
+.nav-item{
+  display: inline;
+  font-size: 15px;
+  text-decoration: none;
+}
+.nav-item img{
+ margin-left: 40px;
+}
+
+.navbar-nav{
+  display: flex;
+}
+
+ */
+.dropdown-menu.show{
+  display: flex !important;
+  align-items: center;
+}
+
+.dropdown-menu[data-bs-popper]{
+  left: 86% !important;
+}
+
+.dropdown-divider{
+  padding-bottom: 30px;
+}
+.cor-header{
+  background-color: rgb(37, 37, 37);
+}
+
+.navbar-toggler{
+  background-color: rgb(245, 245, 245) !important;
+}
+
+
+
+.nav-item{
+  display: inline;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.nav-item img{
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+.cor-link{
+  color: white !important; 
+}
+/* FIM DO HEADER */
+
+
+/* TELA LOGIN E CADASTRAR*/
+.login{
+  align-items: center;
+  padding-top: 20px;
+
+}
+
+.login h1{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  padding-left: 10px;
+  
+}
+
+.login h2{
+  padding-top: 15px;
+  font-size: 15px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(255, 255, 255);
+  padding-left: 80px;
+}
+
+.login input{
+ 
+  /* align-items: center; */
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(211, 211, 211);
+  width: 70% !important;
+}
+.form-control{
+  width: 450px !important;
+  line-height: 1.5em !important;
+}
+
+.form-floating {
+  border-radius: 30px;
+  padding: 10px;
+  width: 200px;
+  background-color: rgb(255, 255, 255);
+  /* color: rgb(0, 0, 0);  */
+  left: 30%;
+  }
+
+  .errado{
+    color: rgb(255, 5, 5);
+    text-align: center;
+    padding-top: 0px;
+  }
+
+  .forms{
+  background-color: #212529;
+  width: 50%;
+  margin-left: 20%;
+  margin-top: 90px;
+  align-items: center;
+  border-radius: 20px;
+  height: 540px;
+  }
+
+  .forms img{
+    width: 70px;
+    margin-left: 40%;
+    margin-top: 30px;
+  }
+
+  .cadastrar{
+  padding-top: 20px;
+}
+
+  .cadastrar a{
+  padding-left: 35%;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-family: 40px;
+  }
+
+ .cadastrar a:hover{
+  text-decoration: underline;
+  transition: 6.1s;
+ }
+
+ .login a {
+  text-decoration: none;
+  font-size: 10px;
+  top:450px;
+  left: 55%;
+  position: absolute;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(254, 254, 254);
+ }
+
+ .login a:hover{
+  text-decoration: underline;
+  transition: 6.1s;
+ }
+
+ .aguarde{
+  color: white;
+  padding-left: 220px;
+  
+ }
+/* FIM DA TELA LOGIN E CADASTRAR*/
+
+ /*TELA REDEFINIR SENHA*/
+ .login_senha input{
+  width: 70% !important;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(211, 211, 211);
+}
+
+.login_senha h1{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  padding-left: 30px;
+  
+}
+
+.login_senha h2{
+  padding-top: 0px;
+  font-size: 15px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(255, 255, 255);
+  padding-left: 40px;
+}
+
+.formulario_senha{
+  background-color: #212529;
+  width: 50%;
+  margin-left: 20%;
+  margin-top: 180px;
+  align-items: center;
+  border-radius: 20px;
+  height: 300px;
+  }
+
+  .formulario_senha img{
+    width: 70px;
+    margin-left: 40%;
+    margin-top: 30px;
+  }
+
+  /* FIM DA TELA REDEFINIR SENHA */
+
+  /* TELA DASHBOARD */
+  .cards{
+    display: flex;
+    position: absolute;
+    padding-top: 30px;
+    padding-left: 70px;
+    gap: 25px;
+}
+
+.card1{
+  background-color: #0088CC !important;
+  border: none !important;
+  color: white !important;
+  width: 300px;
+  height: 160px !important;
+  font-size: 15px;
+  text-align: center;
+  
+}
+
+.card1 h5{
+  font-size: 20px !important;
+}
+
+.card1 img{
+  width: 30px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.card2{
+  background-color: #47A447 !important;
+  color: white !important;
+  width: 300px;
+  height: 160px !important;
+  text-align: center;
+}
+
+.card2 img{
+  width: 30px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.card3{
+  background-color: #ED9C28 !important;
+  color: white !important;
+  width: 300px;
+  height: 160px !important;
+  text-align: center;
+}
+
+.card3 img{
+  width: 30px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+.card4{
+  background-color: #D2322D !important;
+  color: white !important;
+  width: 300px;
+  height: 160px !important;
+  text-align: center;
+}
+
+.card4 img{
+  width: 30px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+/* FIM DA TELA DASHBORD */
+
+/* TELA LISTA */
+.titulo{
+  
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 10px;
+  height: 60px;
+  color: rgb(0, 0, 0);
+  
+}
+
+/* .titulo button{
+  display: inline;
+  background-color: #000000;
+  margin-left: 300px;
+} */
+
+.botao{
+  border: none;
+  border-radius: 10px;
+  color: white !important;
+  background-color: #47A447 !important;
+  position: absolute;
+  left: 80%;
+  padding: 20px;
+  text-align: center;
+  height: 45px;
+  width: 100px;
+  
+}
+.tabela{
+  
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 1000px;
+  
+}
+/* FIM DA TELA LISTA */
+
+/* FORMULARIO */
+/* .comeco{
+  background-color: #EBEEF6;
+  border-color:  #EBEEF6 !important;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 10px;
+  
+}
+
+.comeco button{
+  display: inline;
+  align-items: flex-end;
+  margin-left: 800px;
+}
+
+.formulario{
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 1000px;
+  padding-top: 30px;
+  background-color: rgb(255, 255, 255) ;
+}
+
+.form-floating button{
+margin-top: 30px;
+}
+
+
+.form input{
+  
+  margin-top: 30px;
+  display: flex;
+}
+
+.descricao{
+ margin-top: 40px;
+ margin-left: 130px;
+}
+
+.descricao button{
+  position: absolute;
+  left: 1000px;
+  top: 550px;
+
+}
+
+.form-control-1{
+  width: 700px;
+  border-radius: 10px;
+  border-color: rgb(202, 202, 202);
+  padding: 10px;
+  height: 100px;
+} */
+
+.formulario{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.col-12{
+  margin-bottom: 10px;
+}
+.col-md-12{
+  height: 70px;
+}
+/* FIM DA TELA FORMULARIO */
+
+/* TELA VISUALIZAR */
+/* .informacoes{
+  margin: 0 auto;
+  border-radius: 10px;
+  width: 900px;
+  padding-top: 30px;
+}
+
+.inicio{
+  background-color: #EBEEF6;
+  border-color:  #EBEEF6 !important;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 10px;
+  width: 800px;
+}
+
+.inicio button{
+  display: inline;
+  align-items: flex-end;
+  margin-left: 600px;
+}
+
+#linha {
+  width: 830px;
+  border-bottom: 1px solid #dcdcdc;;
+} */
+
+.corpo{
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-bottom: 10px ;
+}
+/*FIM TELA VISUALIZAR*/
+
+/* TELA ALERTA */
+/* .alertas{
+  width: 1000px;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+.introducao{
+  margin: 0 auto;
+  padding-left: 70px;
+}
+
+.introducao button{
+  margin-left: 700px;
+  margin-bottom: 30px;
+} */
+
+.alerta{
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-bottom: 10px;
+}
+.alert{
+  height: 3rem;
+}
+/* FIM TELA ALERTA */
+
+/* TABLETS */
+@media only screen and (min-width: 768px) and (max-width:1548px){
+    .cards{
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .card1{
+      display: none;
+    }
+
+    .card2{
+      display: none;
+    }
+
+    .card3{
+      display: none;
+    }
+
+    .card4{
+      display: none;
+    }
+
+    
+    
+}
+
+/* CELULARES */
+@media only screen and (max-device-width: 775px){
+    .cards{
+      flex-wrap: wrap;
+      padding-left: 20px;
+      padding-right: 20px;
+      
+    }
+
+    .card1{
+      display: block;
+    }
+
+    .card2{
+      display: block;
+    }
+
+    .card3{
+      display: block;
+    }
+
+    .card4{
+      display: block;
+    }
+
+    .navbar-toggler{
+      padding-left: 90px;
+    }
+
+    .login input{
+      width: 50px;
+    }
+
+    
+}
+
+
+
