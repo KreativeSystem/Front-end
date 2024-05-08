@@ -36,7 +36,7 @@ export const Formulario = () => {
         await api.post('/users', data, {headers})
         .then((response)=>{
         setMensagem(response.data.mensagem)
-        return navigate('/listar')
+        return navigate('/lista')
 
         }).catch((error)=>{
             setMensagem(error.response.data.mensagem)

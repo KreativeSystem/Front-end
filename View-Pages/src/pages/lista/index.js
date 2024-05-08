@@ -10,6 +10,7 @@ export const Lista = () => {
     const [itemsPerPage] = useState(5);
     const [selectedUser, setSelectedUser] = useState(null);
     const [nextUserId, setNextUserId] = useState(1); // Iniciar com ID 1 por padrão
+    const [editUser, setEditUser] = useState(null);
 
     {/* listar os usuarios do banco */ }
     useEffect(() => {
@@ -43,15 +44,16 @@ export const Lista = () => {
             newUsers.splice(index, 1);
             setUsers(newUsers);
             localStorage.setItem('users', JSON.stringify(newUsers));
-    
+
             // Recalcular o próximo ID disponível após a exclusão
             setNextUserId(Math.max(...newUsers.map(user => user.id)) + 1);
         } catch (error) {
             console.error("Erro ao excluir usuário:", error);
         }
     };
-
-
+   
+     {/* editar */ }
+    
 
     {/* Barra de navegação da página */ }
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -87,7 +89,7 @@ export const Lista = () => {
                         </thead>
                         <tbody>
 
-                            {currentUsers.map((user,index) => (
+                            {currentUsers.map((user, index) => (
                                 <tr key={user.id}>
                                     <td>{user.id}</td>
                                     <td>{user.name}</td>
@@ -129,20 +131,83 @@ export const Lista = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    
 
-                                    <button className="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
-                                        </svg>
-                                    </button>
 
-                                    <button onClick={() => handleDelete(user.id, index)}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
-                                        </svg>
-                                    </button>
-                                        
+                                        <button className="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z" />
+                                            </svg>
+                                        </button>
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">editar</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form className="row g-3 form-formulario" >
+                                                            <div className="col-md-12">
+                                                                <label className="form-label">Nome</label>
+                                                                <input type="text" className="form-control" id="inputCity" placeholder="Nome completo" name="name"  />
+                                                            </div>
+                                                            <div className="col-md-12">
+                                                                <label for="inputEmail4" className="form-label">Email</label>
+                                                                <input type="email" className="form-control" id="inputEmail4" placeholder="Coloque o e-mail" name="email"  />
+                                                            </div>
+                                                            <div className="col-md-12">
+                                                                <label for="inputCity" className="form-label">password</label>
+                                                                <input type="password" name="password" className="form-control" id="inputCity" placeholder="senha" />
+                                                            </div>
+                                                            <div className="col-md-12">
+                                                                <label className="form-label">telefone</label>
+                                                                <input type="text" className="form-control" id="inputCity" placeholder="Campo 4" name="phone"  />
+                                                            </div>
+                                                            <div className="col-md-12">
+                                                                <label className="form-label">cep</label>
+                                                                <input type="text" className="form-control" id="inputAddress" placeholder="Campo 5" name="CEP"  />
+                                                            </div>
+                                                            <div className="col-md-12">
+                                                                <label className="form-label">Estado</label>
+                                                                <input type="text" className="form-control" id="inputAddress" placeholder="Campo 5" name="state"  />
+                                                            </div>
+                                                            <div className="col-md-12">
+                                                                <label className="form-label">cidade</label>
+                                                                <input type="text" className="form-control" id="inputAddress" placeholder="Campo 5" name="city"  />
+                                                            </div>
+                                                            <div className="col-md-12">
+                                                                <label className="form-label">Rua</label>
+                                                                <input type="text" className="form-control" id="inputAddress" placeholder="Campo 5" name="street"  />
+                                                            </div>
+                                                            <div className="col-md-12">
+                                                                <label for="inputAddress" className="form-label">Numero de moradia</label>
+                                                                <input type="text" className="form-control" id="inputAddress" placeholder="Campo 5" name="dwellingNumber"  />
+                                                            </div>
+                                                            <br></br>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                                </svg>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><button type="button" class="btn btn-primary" onClick={() => handleDelete(user.id, index)}>sim</button></li>
+                                                <li><button type="button" class="btn btn-secondary">não</button></li>
+
+                                            </ul>
+
+                                        </div>
                                     </td>
 
 
