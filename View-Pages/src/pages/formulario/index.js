@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import api from "../../config/configApi"
 import{useNavigate} from "react-router-dom"
 import Navbar from "../header/index";
@@ -21,6 +21,7 @@ export const Formulario = () => {
     })
 
     const [mensagem, setMensagem] = useState("")
+    const [formCompleto, setFormCompleto] = useState(false);
 
     const valorInput = e => setData({...data, [e.target.name]: e.target.value})
 
@@ -58,6 +59,14 @@ export const Formulario = () => {
             console.error("Erro ao consultar CEP:", error);
         }
     };
+    useEffect(() => {
+        const { name, email, password, phone, CEP, state, city, street, dwellingNumber } = data;
+        if (name && email && password && phone && CEP && state && city && street && dwellingNumber) {
+            setFormCompleto(true);
+        } else {
+            setFormCompleto(false);
+        }
+    }, [data]);
 
     return (
         <div>
@@ -115,7 +124,7 @@ export const Formulario = () => {
                         </div>
                         <br></br>
                         {mensagem ? <p>{mensagem}</p>: ""}
-                        <button type="submit" className="btn btn-success">Cadastrar</button>
+                        <button type="submit" className="btn btn-success" disabled={!formCompleto}>Cadastrar</button>
                     </form>
                 </div>
             </section>
