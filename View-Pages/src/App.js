@@ -3,7 +3,7 @@ import {Route, BrowserRouter as Router, Routes } from "react-router-dom"
 import { Login } from './pages/login';
 import {Dashboard} from './pages/Dashboard';
 import { AddUser } from './pages/addUser';
-import { recoverPass } from './pages/recoverPass';
+import RecoverPass, { recoverPass } from './pages/recoverPass';
 import {Lista} from './pages/lista'
 import {Formulario} from './pages/formulario'
 import{Visualizar} from './pages/visualizar'
@@ -22,7 +22,7 @@ function App() {
           <Route path = "/dashboard" Component={Dashboard}/>
           <Route path="/lista" Component={Lista}/>
           <Route path="/cadastro" Component={AddUser}/>
-          <Route path="/redefinir_senha" Component={recoverPass}/>
+          <Route path="/redefinir_senha" Component={RecoverPass} />
         </Routes>
       </Router>
     </div>

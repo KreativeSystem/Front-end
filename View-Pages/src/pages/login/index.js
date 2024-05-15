@@ -62,7 +62,7 @@ export const Login = () => {
     <body>
         <div>       
             <div className="forms"> 
-                <img src="/img/boot.png" alt=""></img>
+                <img src="/img/logo.png" alt=""></img>
 
                 <div className="login">
                     <form onSubmit={loginSubmit}>
@@ -71,7 +71,7 @@ export const Login = () => {
                         <input className="form-control" type="text" name="email" placeholder="Digite seu e-mail..." onChange={valueInput} /><br />
                         <h2>Senha</h2>
                         <input className="form-control" type="password" name="password" placeholder="Digite sua senha..." onChange={valueInput} /> <br />
-                        <a href="/redefinir_senha">ESQUECI MINHA SENHA</a>
+                        <a href="/redefinir_senha" className="link"><strong>ESQUECI MINHA SENHA</strong></a>
                         {status.type === 'success' ? <p className="errado">{status.mensagem}</p> : <p className="errado">{status.mensagem}</p>}
                         {status.loding === true? <p className="aguarde">Aguarde...</p>:''}
                         {status.loding === true? <button disabled={true} class="form-floating" type="submit">ENTRAR</button>:<button disabled={false} class="form-floating" type="submit">ENTRAR</button>}
