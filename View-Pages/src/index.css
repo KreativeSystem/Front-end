@@ -1,29 +1,9 @@
-* {
+*{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-
 }
 
-/*HEADER*/
-/* .container-fluid img{
-  padding-left: 30px;
-}
-
-.nav-item{
-  display: inline;
-  font-size: 15px;
-  text-decoration: none;
-}
-.nav-item img{
- margin-left: 40px;
-}
-
-.navbar-nav{
-  display: flex;
-}
-
- */
+/*dashboard-header*/
 .dropdown-menu.show {
   display: flex !important;
   align-items: center;
@@ -53,7 +33,8 @@ nav {
 
 nav img{
 
-  width: 80px;
+  width: 4rem;
+  height: 4rem;
 }
 
 
@@ -71,11 +52,7 @@ nav img{
 .cor-link {
   color: white !important;
 }
-
-/* FIM DO HEADER */
-
-
-/* TELA LOGIN E CADASTRAR*/
+/*login*/
 .login {
   align-items: center;
   padding-top: 20px;
@@ -178,7 +155,8 @@ form {
 }
 
 .cadastrar {
-  padding-top: 30px;
+  padding-top: 1%;
+  padding-bottom: 2%;
 }
 
 .cadastrar a {
@@ -213,16 +191,12 @@ form {
 .aguarde {
   color: white;
   padding-left: 220px;
-
 }
 
-/* FIM DA TELA LOGIN E CADASTRAR*/
-
-/* CADASTRAR_SE */
-
+/*cadastrar*/
 .addUser{
   margin: 5%;
-  background-color: #ece6d3;
+  background-color: #ece6d3 !important;
   padding: 10px;
   border-radius: 30px;
 }
@@ -247,7 +221,7 @@ form {
 
   text-align: center;
   font-size: 20px !important;
-
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #771011;
 }
 
@@ -259,13 +233,13 @@ form {
 .addUser a{
 
   text-decoration: none;
-  color: #fff;
+  color: #771011;
 }
 
-.addUser .btn{
+.voltar{
 
-  background-color: #771011;
-  color: #fff;
+  
+  color: #771011 !important;
 }
 
 .addUser .Footer{
@@ -276,58 +250,42 @@ form {
 .addUser p{
   margin-bottom: 0;
   text-align: center;
-  background-color: #77101273;
   border-radius: 30px;
   padding: 10px;
-  color: #fff;
+  color: #77101273;
+}
+.col img{
+  width: 5rem;
+  height: 6rem;
+  margin-left: 47%;
+  
+}
+.cadastrar-adduser{
+  background-color: #771011 !important;
+  color: #fff !important;
+}
+/* mudar senha*/
+.botao-senha{
+  border-radius: 30px !important;
+  padding: 10px !important;
+  width: 250px !important;
+  background-color: #771011 !important;
+  border: #771011 solid 3px !important;
+  color: #ece6d3 !important;
+  margin-top: 3%;
+  margin-bottom: 5%;
+}
+.text-danger{
+  padding-top: 3%;
+  padding-bottom: 3% !important;
 }
 
-/* FIM CADASTRAR-SE */
+/*dashboard-card*/
 
-/*TELA REDEFINIR SENHA*/
-.login_senha input {
-  width: 70% !important;
-  align-items: center;
-  margin: 0 auto;
-  background-color: rgb(255, 255, 255);
-  border-color: rgb(211, 211, 211);
+.navbar-toggler-icon{
+  background-color: white !important;
+  border-radius: 5px;
 }
-
-.login_senha h1 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: rgb(255, 255, 255);
-  font-size: 25px;
-  padding-left: 30px;
-
-}
-
-.login_senha h2 {
-  padding-top: 0px;
-  font-size: 15px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: rgb(255, 255, 255);
-  padding-left: 40px;
-}
-
-.formulario_senha {
-  background-color: #212529;
-  width: 50%;
-  margin-left: 20%;
-  margin-top: 180px;
-  align-items: center;
-  border-radius: 20px;
-  height: 300px;
-}
-
-.formulario_senha img {
-  width: 70px;
-  margin-left: 40%;
-  margin-top: 30px;
-}
-
-/* FIM DA TELA REDEFINIR SENHA */
-
-/* TELA DASHBOARD */
 .cards {
   display: flex;
   justify-content: center;
@@ -400,198 +358,96 @@ form {
   margin: 0 auto;
 }
 
-/* FIM DA TELA DASHBORD */
-
-/* TELA LISTA */
-.titulo {
-
-  padding: 10px;
-  margin-top: 30px;
-  border-radius: 10px;
-  height: 60px;
-  color: rgb(0, 0, 0);
-
-}
-
-/* .titulo button{
-  display: inline;
-  background-color: #000000;
-  margin-left: 300px;
+/* @media screen and (max-width: 800px) {
+  .cards{
+      display: list-item;
+  }
 } */
 
-.botao {
-  border: none;
+
+/*listar*/
+section{
+  background-color: white !important;
+  margin: 20px;
   border-radius: 10px;
-  color: white !important;
-  background-color: #47A447 !important;
-  position: absolute;
-  left: 80%;
-  padding: 20px;
-  text-align: center;
-  height: 45px;
-  width: 100px;
-
 }
-
-.btn {
-  margin-right: 5px;
-}
-
-.tabela {
-
-  margin: 0 auto;
+table{
   border-radius: 10px;
-  width: 1000px;
-
 }
-
-.butons{
-
-  display: flex;
-  flex-direction: row;
+.page-link{
+  border: none !important;
+  color: black !important;
 }
-
-/* FIM DA TELA LISTA */
-
-/* FORMULARIO */
-/* .comeco{
-  background-color: #EBEEF6;
-  border-color:  #EBEEF6 !important;
-  padding: 10px;
-  margin-top: 30px;
-  border-radius: 10px;
+.pagination{
   
+  padding-bottom: 30px;
+ 
 }
-
-.comeco button{
-  display: inline;
-  align-items: flex-end;
-  margin-left: 800px;
+.table>:not(caption)>*>* {
+  background-color: rgba(0, 0, 0, 0.056) !important;
 }
-
-.formulario{
-  margin: 0 auto;
-  border-radius: 10px;
-  width: 1000px;
-  padding-top: 30px;
-  background-color: rgb(255, 255, 255) ;
-}
-
-.form-floating button{
-margin-top: 30px;
-}
-
-
-.form input{
-  
-  margin-top: 30px;
+.botoes-funcao{
   display: flex;
 }
-
-.descricao{
- margin-top: 40px;
- margin-left: 130px;
+.cadastrar-listar{
+  background-color: #771011 !important;
+  color: #fff !important;
 }
 
-.descricao button{
-  position: absolute;
-  left: 1000px;
-  top: 550px;
 
+/*formulario*/
+textarea{
+  height: 100px
 }
-
-.form-control-1{
-  width: 700px;
-  border-radius: 10px;
-  border-color: rgb(202, 202, 202);
-  padding: 10px;
-  height: 100px;
-} */
-
-.formulario {
+.margem-forms{
   margin-left: 40px;
   margin-right: 40px;
+  padding-bottom: 20px;
 }
-
-.col-12 {
-  margin-bottom: 10px;
-}
-
-.col-md-12 {
-  height: 70px;
-}
-
-.margem-forms {
-  margin: 20px;
-}
-
-/* FIM DA TELA FORMULARIO */
-
-/* TELA VISUALIZAR */
-/* .informacoes{
-  margin: 0 auto;
+table{
   border-radius: 10px;
-  width: 900px;
-  padding-top: 30px;
+}
+.cadastrar-formulario{
+  background-color: #771011 !important;
+  color: #fff !important;
+
+}
+.cadastrar-listar a{
+  text-decoration: none ;
+  color: #fff !important;
 }
 
-.inicio{
-  background-color: #EBEEF6;
-  border-color:  #EBEEF6 !important;
-  padding: 10px;
-  margin-top: 30px;
-  border-radius: 10px;
-  width: 800px;
+/* visualizar*/
+.col-form-label{
+  font-weight: bold !important;
 }
-
-.inicio button{
-  display: inline;
-  align-items: flex-end;
-  margin-left: 600px;
+.visualizar{
+  margin-left: 40px;
+  padding-bottom: 20px;
 }
-
-#linha {
-  width: 830px;
-  border-bottom: 1px solid #dcdcdc;;
-} */
-
-.corpo {
+/*alerta*/
+.alerta{
   margin-left: 30px;
   margin-right: 30px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
-
-/*FIM TELA VISUALIZAR*/
-
-/* TELA ALERTA */
-/* .alertas{
-  width: 1000px;
-  margin: 0 auto;
-  padding-top: 50px;
-}
-.introducao{
-  margin: 0 auto;
-  padding-left: 70px;
-}
-
-.introducao button{
-  margin-left: 700px;
-  margin-bottom: 30px;
-} */
-
-.alerta {
-  margin-left: 30px;
-  margin-right: 30px;
-  padding-bottom: 10px;
-}
-
-.alert {
+.alert{
   height: 3rem;
 }
 
-/* FIM TELA ALERTA */
+.dropdown-menu.show{
+  display: flex !important;
+  align-items: center;
+}
+.dropdown-menu[data-bs-popper]{
+  left: 86% !important;
+  
+}
 
-/* TABLETS */
+.dropdown-divider{
+  padding-bottom: 30px;
+}
+
 @media only screen and (min-width: 768px) and (max-width:1548px) {
   .cards {
     width: 100%;
@@ -619,7 +475,6 @@ margin-top: 30px;
 
 }
 
-/* CELULARES */
 @media only screen and (max-device-width: 775px) {
   .cards {
     flex-wrap: wrap;
@@ -652,7 +507,9 @@ margin-top: 30px;
   .login input {
     width: 50px;
   }
-
+  .form-control  {
+    width: 100% !important;
+  }
+  
 
 }
-

@@ -1,67 +1,74 @@
-import React, { useState } from "react";
+import React,{useState, useContext} from "react";
 import api from "../../config/configApi"
-import { useNavigate } from 'react-router-dom'
+import{json, useNavigate} from "react-router-dom"
+
+import { AuthProvider, Context } from "../../Context/AuthContext";
 
 
-export const Login = () => {
+
+export const Login = ()=>{
+    const {authenticated} = useContext(Context)
+    console.log("na tela de login o usario esta " + authenticated)
 
     const navigate = useNavigate();
 
-    const [user, setUser] = useState({
+    const [user, setUser]= useState({
         email: '',
         password: ''
-
     })
 
-    const [status, setStatus] = useState({
+    const [status,setStatus] = useState({
+
         type: '',
-        mensagem: '',
-        loding: false
+        mensagem: ''
     })
 
+    const valueInput = e => setUser({...user, [e.target.name]: e.target.value})
 
-
-    const valueInput = e => setUser({ ...user, [e.target.name]: e.target.value })
-
-    const loginSubmit = async e => {
+    const loginSubmit = async e =>{
         e.preventDefault();
-        //console.log(user.email)
+       // console.log(user.email)
         //console.log(user.password)
-
         setStatus({loding:true})
 
-        const headers = {
-            'Content-Type': 'application/json'
+        const headers = { 
+            'Content-Type' : 'application/json'
         }
 
-        await api.post('/user-login', user, { headers })
-            .then((response) => {
-                setStatus({
-                    type: 'success',
-                    mensagem: response.data.mensagem,
-                    loding:false
-                })
-                return navigate('/dashboard')
+        await api.post('/users-login', user, {headers})
+        .then((response) =>{
+            console.log(response)
+            setStatus({
 
-            }).catch((error) => {
-                if (error.response) {
-                    setStatus({
-                        type: 'error',
-                        mensagem: error.response.data.mensagem
-                    })
-                } else {
-                    setStatus({
-                        type: 'error',
-                        mensagem: "Erro de conexão tente novamente mais tarde"
-                    })
-                }
+                type:'sucess',
+                mensagem: response.data.mensagem,
+                loding:false
             })
+            localStorage.setItem('token',JSON.stringify(response.data.token))
+             return navigate('/dashboard')
+        }).catch((error) =>{
+          
+               if (error.response) {
+                setStatus({
+
+                    type:'error',
+                    mensagem: error.response.data.mensagem
+                })
+                
+               } else {
+                setStatus({
+
+                    type:'error',
+                    mensagem: " ERRO de conexão com o servidor"
+                })
+               }
+            })
+        
     }
 
-    return (
-    <body>
-        <div>       
-            <div className="forms"> 
+    return(
+        <div >
+           <div className="forms"> 
                 <img src="/img/logo.png" alt=""></img>
 
                 <div className="login">
@@ -71,7 +78,7 @@ export const Login = () => {
                         <input className="form-control" type="text" name="email" placeholder="Digite seu e-mail..." onChange={valueInput} /><br />
                         <h2>Senha</h2>
                         <input className="form-control" type="password" name="password" placeholder="Digite sua senha..." onChange={valueInput} /> <br />
-                        <a href="/redefinir_senha" className="link"><strong>ESQUECI MINHA SENHA</strong></a>
+                        <a href="/recoverPass" className="link"><strong>ESQUECI MINHA SENHA</strong></a>
                         {status.type === 'success' ? <p className="errado">{status.mensagem}</p> : <p className="errado">{status.mensagem}</p>}
                         {status.loding === true? <p className="aguarde">Aguarde...</p>:''}
                         {status.loding === true? <button disabled={true} class="form-floating" type="submit">ENTRAR</button>:<button disabled={false} class="form-floating" type="submit">ENTRAR</button>}
@@ -80,12 +87,11 @@ export const Login = () => {
                 </div>
 
                 <div className="cadastrar">
-                    <a href="/cadastro">CADASTRAR-SE</a> 
+                    <a href="/addUser">CADASTRAR-SE</a> 
                </div>
 
             </div>
-        </div> 
-    </body>
+        </div>
     )
 }
 

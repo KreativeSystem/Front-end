@@ -1,9 +1,9 @@
-import React from "react"; 
-import axios from 'axios'
+import React from "react";
+import axios from "axios"
 
-//Realizando conexão com servidor do Back-end
+//realizar conexão com servidor do back-end
 
 export default axios.create({
 
-    baseURL:'http://10.144.227.205:8081'
+    baseURL: 'http://localhost:8081'
 })

@@ -1,16 +1,16 @@
-SEQUENCIA PARA CRIAR O PROJETO 
+sequencia para criar projeto
 
-Criar projeto em react
-## npx create-react-app (nome do projeto)
+criar projeto em react
+## npx create-react-app + nome do projeto
 
-Acessar diretorio do projeto 
+acessar diretorio do projeto
 ## cd (nome do projeto)
 
-Executar projeto
-## npm start 
+executar projeto
+ ## npm start
 
-Gerenciador de rotas front 
+ gerenciador de rota front
 ## npm i --save react-router-dom
 
-Realizar conexão com a API
+realizar conexão com API
 ## npm install --save axios

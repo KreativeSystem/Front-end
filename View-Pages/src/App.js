@@ -1,30 +1,32 @@
-import React from 'react'
-import {Route, BrowserRouter as Router, Routes } from "react-router-dom"
-import { Login } from './pages/login';
+import React from 'react';
+import {Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import Login, { login } from './pages/login';
 import {Dashboard} from './pages/Dashboard';
-import { AddUser } from './pages/addUser';
-import RecoverPass, { recoverPass } from './pages/recoverPass';
-import {Lista} from './pages/lista'
-import {Formulario} from './pages/formulario'
-import{Visualizar} from './pages/visualizar'
-import {Alertas} from './pages/alertas'
+import {AddUser} from './pages/addUser'
+import {RecoverPass} from './pages/recoverPass';
+import {Listar} from './pages/listar';
+import {Formulario} from './pages/formulario';
+import {Alerta} from './pages/alerta';
+
+import { AuthProvider } from './Context/AuthContext';
 
 function App() {
   return (
-    <div>
-      <Router>
+    <div >
+      <AuthProvider>
+     <Router>
         <Routes>
-          
-          <Route path='/alertas' Component={Alertas}/>
+          <Route path='/' Component={Login}/>
+          <Route path='/dashboard' Component={Dashboard}/>
+          <Route path='/addUser' Component={AddUser}/>
+          <Route path='/recoverPass' Component={RecoverPass}/>
+          <Route path='/listar' Component={Listar}/>
           <Route path='/formulario' Component={Formulario}/>
-          <Route path='/visualizar' Component={Visualizar}/>
-          <Route path = "/" Component={Login}/>
-          <Route path = "/dashboard" Component={Dashboard}/>
-          <Route path="/lista" Component={Lista}/>
-          <Route path="/cadastro" Component={AddUser}/>
-          <Route path="/redefinir_senha" Component={RecoverPass} />
+         
+          <Route path='/alerta' Component={Alerta}/>
         </Routes>
-      </Router>
+     </Router>
+     </AuthProvider>
     </div>
   );
 }

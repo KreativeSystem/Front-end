@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React,{useState, useEffect} from "react";
 import api from "../../config/configApi"
-import { useNavigate } from "react-router-dom"
+import{useNavigate} from "react-router-dom"
 
-export const AddUser = () => {
+export const AddUser = ()=>{
 
     const navigate = useNavigate();
 
@@ -67,12 +67,14 @@ export const AddUser = () => {
         }
     }, [data]);
 
-    return (
+    return(
         <div>
+            
             <section className="addUser">
                 <div className="container overflow-hidden cor-linha">
                     <div className="row gx-5">
                         <div className="col">
+                        <img src="/img/logo.png" alt=""></img>
                             <div className="p-3 title">Cadastrar</div>
                         </div>
                     </div>
@@ -81,51 +83,51 @@ export const AddUser = () => {
                     <form className="row g-3 form-formulario" onSubmit={sendForms}>
                         <div className="col-md-6">
                             <label className="form-label">Nome</label>
-                            <input type="text" className="form-control input-addUser" id="inputCity" placeholder="Nome completo" name="name" onChange={valorInput} />
+                            <input type="text" className="form-control input-addUser" id="inputCity" placeholder="Nome completo" name="name" onChange={valorInput} required/>
                         </div>
                         <div className="col-md-6">
                             <label for="inputEmail4" className="form-label">Email</label>
-                            <input type="email" className="form-control input-addUser" id="inputEmail4" placeholder="Coloque o e-mail" name="email" onChange={valorInput} />
+                            <input type="email" className="form-control input-addUser" id="inputEmail4" placeholder="Coloque o e-mail" name="email" onChange={valorInput} required/>
                         </div>
                         <div className="col-md-6">
                             <label for="inputCity" className="form-label">password</label>
-                            <input type="password" name="password" className="form-control input-addUser" id="inputCity" placeholder="senha" onChange={valorInput}></input>
+                            <input type="password" name="password" className="form-control input-addUser" id="inputCity" placeholder="senha" onChange={valorInput} required></input>
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">telefone</label>
-                            <input type="text" className="form-control input-addUser" id="inputCity" placeholder="Campo 4" name="phone" onChange={valorInput} />
+                            <input type="text" className="form-control input-addUser" id="inputCity" placeholder="Campo 4" name="phone" onChange={valorInput} required/>
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">cep</label>
-                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="CEP" onBlur={(e) => consultarCEP(e.target.value)} onChange={valorInput} />
+                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="CEP" onBlur={(e) => consultarCEP(e.target.value)} onChange={valorInput} required />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">Estado</label>
-                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="state" value={data.state} onChange={valorInput} />
+                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="state" value={data.state} onChange={valorInput} required />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">cidade</label>
-                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="city" value={data.city} onChange={valorInput} />
+                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="city" value={data.city} onChange={valorInput} required/>
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">Rua</label>
-                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="street" value={data.street} onChange={valorInput} />
+                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="street" value={data.street} onChange={valorInput} required />
                         </div>
                         <div className="col-md-6">
                             <label for="inputAddress" className="form-label">Numero de moradia</label>
-                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="dwellingNumber" onChange={valorInput} />
+                            <input type="text" className="form-control input-addUser" id="inputAddress" placeholder="Campo 5" name="dwellingNumber" onChange={valorInput} required />
                         </div>
                         <br></br>
-                        {!formCompleto ? <p>preencha todos os campos<br/> para liberar o botão</p> : ""}
+                        
                         <div className="Footer">
-                            <button type="submit" className="btn" disabled={!formCompleto}>Cadastrar</button>
-                            <button type="submit" className="btn"><a href="/">Voltar</a></button>
+                            <button type="submit" className="btn cadastrar-adduser" disabled={!formCompleto}>Cadastrar</button>
+                            <button type="submit" className="btn voltar" href="/"><a href="/">Voltar</a></button>
                         </div>
                     </form>
                 </div>
             </section>
+        
         </div>
     )
 }
-
 export default AddUser

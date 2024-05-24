@@ -1,49 +1,51 @@
-import React from 'react';
-import Navbar from '../header';
+import React,{useContext} from "react";
+import Navbar from "../header";
+import { Context } from "../../Context/AuthContext";
 
-export const Dashboard = ()=>{
-    return(
-<div>
+export const Dashboard = () => {
+  const token = localStorage.getItem('token')
+  const {authenticated} = useContext(Context)
+    console.log("na tela dashboard o usuario esta" + authenticated)
 
-<Navbar />
+    return (
+        <div>
+            <Navbar/>
 
-<div class="cards">
+            <div className="cards">
   
-      <div class="card mb-3 card1" >
+      <div className="card mb-3 card1" >
         <img src="/img/users.png" alt=""/>
-        <div class="card-body">
-          <h5 class="card-title">345</h5>
-          <p class="card-text">Usuários</p>
-        </div>
+        <div className="card-body">
+          <h5 className="card-title">345</h5>
+         </div>
       </div>
 
-      <div class="card mb-3 card2" >
+      <div className="card mb-3 card2" >
         <img src="/img/entregas.png" alt=""/>
-        <div class="card-body">
-          <h5 class="card-title">43</h5>
-          <p class="card-text">Entregas</p>
+        <div className="card-body">
+          <h5 className="card-title">43</h5>
+          <p className="card-text">Entregas</p>
         </div>
       </div>
 
-      <div class="card mb-3 card3" >
+      <div className="card mb-3 card3" >
         <img src="/img/completas.png" alt=""/>
-        <div class="card-body">
-          <h5 class="card-title">56</h5>
-          <p class="card-text">Concluidas</p>
+        <div className="card-body">
+          <h5 className="card-title">56</h5>
+          <p className="card-text">Concluidas</p>
         </div>
       </div>
 
-      <div class="card mb-3 card4" >
+      <div className="card mb-3 card4" >
         <img src="/img/alertas.png" alt=""/>
-        <div class="card-body">
-          <h5 class="card-title">67</h5>
-          <p class="card-text">Alertas</p>
+        <div className="card-body">
+          <h5 className="card-title">67</h5>
+          <p className="card-text">Alertas</p>
         </div>
       </div>
     </div>
-  
+   {<p>token:{token}</p>}
         </div>
     )
 }
-
 export default Dashboard

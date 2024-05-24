@@ -1,10 +1,10 @@
+
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import api from "../../config/configApi.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const RecoverPass = () => {
-
     const [email, setEmail] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
@@ -72,34 +72,39 @@ export const RecoverPass = () => {
     };
 
     return (
-        <body>
-            <div>
-                <div className="formulario_senha">
-                    <img src="/img/boot.png" alt=""></img>
+        <div>
 
-                    <div className="login_senha">
-                        <form onSubmit={formSubmitted ? handlePasswordReset : handleRecoverPassword} >
-                            {error && <p className="text-danger text-center">{error}</p>}
-                            <h1>Redefinir a senha</h1>
-                            <h2>Coloque seu e-mail</h2>
-                            <input className="form-control" type="text" name="email" placeholder="Digite seu e-mail" value={email} onChange={(e) => setEmail(e.target.value)} /><br />
-                            <input type="password" className="form-control" name="newPassword" placeholder="Nova senha" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-                            <input type="password" className="form-control" name="confirmNewPassword" placeholder="Confirme a Nova senha" value={confirmNewPassword} onChange={(e) => setConfirmNewPassword(e.target.value)} />
+<div className="forms"> 
+                <img src="/img/logo.png" alt=""></img>
 
-                            <button type="submit" className={`btn btn-lg btn-block ${isLoading || (!isEmailValid && !isFormValid) ? 'disabled' : ''}`} disabled={isLoading || (!isEmailValid && !isFormValid)}>
-                                {isLoading ? "Enviando..." : formSubmitted ? "Redefinir Senha" : "Recuperar Senha"}
-                            </button>
-                            {formSubmitted && (
+                <div className="login">
+                    <form onSubmit={formSubmitted ? handlePasswordReset : handleRecoverPassword}>
+                    
+                        <h1>Recupere sua senha</h1>
+                        <h2>Email</h2>
+                        <input className="form-control" type="text" name="email" placeholder="Digite seu e-mail..." value={email} onChange={(e) => setEmail(e.target.value)} /><br />
+                        <h2>Senha</h2>
+                        <input className="form-control" type="password" name="password"  placeholder="Nova senha" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} /> <br />
+                        <input type="password" className="form-control" name="confirmNewPassword" placeholder="Confirme a Nova senha" value={confirmNewPassword} onChange={(e) => setConfirmNewPassword(e.target.value)} />
+                        
+                        {error && <p className=" text-center">{error}</p>}
+                        {formSubmitted && (
                                 <div className="mt-3 text-center">
                                     <Link to="/" className="text-danger">Voltar ao login</Link>
                                 </div>
                             )}
-                        </form>
-                    </div>
+                        <button type="submit" className={`btn btn-lg btn-block botao-senha ${isLoading || (!isEmailValid && !isFormValid) ? 'disabled' : ''}`} disabled={isLoading || (!isEmailValid && !isFormValid)}>
+                                {isLoading ? "Enviando..." : formSubmitted ? "Redefinir Senha" : "Recuperar Senha"}
+                            </button>
+                           
+                        
+                    </form>
                 </div>
+
             </div>
-        </body>
+
+
+        </div>
     )
 }
-
-export default RecoverPass;
+export default RecoverPass
