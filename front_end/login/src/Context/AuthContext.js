@@ -4,7 +4,7 @@ import api from '../config/configApi.js';
 const Context = createContext();
 
 function AuthProvider({ children }) {
-    const [authenticated, setauthenticated] = useState(false);
+    const [authenticated, setAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ function AuthProvider({ children }) {
 
             if (token) {
                 api.defaults.headers.Authorization = `Bearer ${token}`;
-                setauthenticated(true);
+                setAuthenticated(true);
             }
             setLoading(false);
         };
@@ -38,7 +38,7 @@ function AuthProvider({ children }) {
             await api.get("/val-token", headers);
             return true;
         } catch {
-            setauthenticated(false);
+            setAuthenticated(false);
             localStorage.removeItem('token');
             api.defaults.headers.Authorization = undefined;
             return false;
@@ -46,11 +46,11 @@ function AuthProvider({ children }) {
     };
 
     async function signIn() {
-        setauthenticated(true);
+        setAuthenticated(true);
     }
 
     function handleLogout() {
-        setauthenticated(false);
+        setAuthenticated(false);
         localStorage.removeItem('token');
         api.defaults.headers.Authorization = undefined;
     }
