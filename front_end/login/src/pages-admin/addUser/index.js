@@ -10,7 +10,7 @@ export const AddUser = () => {
         name: '',
         email: '',
         password: '',
-        phone: '',
+        phoneNumber: '',
         CEP: '',
         state: '',
         city: '',
@@ -59,8 +59,8 @@ export const AddUser = () => {
         }
     };
     useEffect(() => {
-        const { name, email, password, phone, CEP, state, city, street, dwellingNumber } = data;
-        if (name && email && password && phone && CEP && state && city && street && dwellingNumber) {
+        const { name, email, password, phoneNumber, CEP, state, city, street, dwellingNumber } = data;
+        if (name && email && password && phoneNumber && CEP && state && city && street && dwellingNumber) {
             setFormCompleto(true);
         } else {
             setFormCompleto(false);
@@ -111,7 +111,7 @@ export const AddUser = () => {
 
                                         <div class="input-field">
 
-                                            <input id="number" type="tel" name="phone" class="input" required onChange={valorInput} />
+                                            <input id="number" type="tel" name="phoneNumber" class="input" required onChange={valorInput} />
                                             <label for="number">Celular</label>
                                         </div>
 

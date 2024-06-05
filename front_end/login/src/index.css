@@ -117,6 +117,7 @@
 }
 .img-login{
   background-image: url(./../public/img/login.png);
+  background-size: 100%;
 }
 .img-fluid{
   width: 300px;
@@ -427,6 +428,431 @@ table{
 }
 
 /*fim do header*/
+
+
+/* tela avela*/
+.descrição {
+  display: flex;
+  flex-direction: row;
+  padding: 3rem !important;
+  margin: 5% 0 10% 12% !important;
+  align-items: center;
+}
+
+.product-name {
+  font-size: 1.7rem;
+  margin-bottom: 2rem;
+  color: white;
+  margin-left: 20px;
+  font-family: "Bellota";
+}
+
+.product-price {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-family: "Bellota Text";
+  color: white;
+  font-size: 20px;
+  position: relative;
+  left: 6%;
+}
+
+.product-price-leite {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: "Bellota Text";
+  color: white;
+  font-size: 20px;
+  position: relative;
+  left: 6%;
+}
+
+.product-price-cookie {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: "Bellota Text";
+  color: white;
+  font-size: 20px;
+  position: relative;
+  left: 6%;
+}
+
+.products-details {
+  position: relative;
+  width: 75%;
+  left: 15%;
+  top: 20%;
+}
+
+.img-talento {
+  width: 40% !important;
+}
+
+.img-logo {
+  width: 8%;
+  margin-left: 2%;
+}
+
+.circle {
+  background-color: #B25046;
+  width: 500px !important;
+  height: 500px;
+  border-radius: 100%;
+  margin-bottom: 0rem;
+  margin-left: 50px !important;
+}
+
+.circle-cookie {
+  background-color: #83a4e2;
+  width: 500px !important;
+  height: 500px;
+  border-radius: 100%;
+  margin-bottom: 1rem;
+  margin-right: 200px !important;
+}
+
+.circle-leite {
+  background-color: #F9C09A;
+  width: 500px !important;
+  height: 500px;
+  border-radius: 100%;
+  margin-bottom: 0rem;
+  margin-right: 200px !important;
+}
+
+.btn-shop {
+  background-color: #ffffff !important;
+  border-radius: 5% !important;
+}
+
+.btn-cart {
+  background-color: #ffffff !important;
+  color: black;
+  font-size: 1rem;
+  font-family: "Crimson Pro";
+  border-radius: 5% !important;
+}
+
+.mobile {
+  display: none;
+}
+
+.mobile-cookie {
+  display: none;
+}
+
+.mobile-leite {
+  display: none;
+}
+
+.btn-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: row;
+  margin-bottom: 3rem;
+  font-size: 15px;
+  padding: 1.2rem 0rem;
+}
+
+.short-description {
+  font-family: "Bellota Text";
+  color: white;
+  font-size: 20px;
+}
+/*fim tela avela*/
+/*carrinho*/
+.section-position-carrinho {
+  margin: 130px 0 0 50px;
+}
+
+.card-carrinho {
+  margin: 10px;
+  display: flex;
+  width: 95%;
+  /* display: flex; */
+  /* align-content: center; */
+  /* align-items: center; */
+}
+
+.card-carrinho img {
+  width: 5%;
+}
+
+.card-body-carrinho {
+  display: flex;
+  align-content: center;
+  align-items: center;
+
+}
+
+.price {
+  margin-left: 0%;
+  display: flex;
+}
+
+.card-title-carrinho {
+  width: 50%;
+  margin-left: 10%;
+}
+
+.price-item {
+  /* align-content: center; */
+  width: 300px;
+  height: fit-content;
+}
+
+.btn-close {
+  margin-top: 3%;
+}
+
+.finalizar{
+  margin-left: 80% !important;
+  margin-bottom: 8%;
+}
+
+.value-pay{
+  margin-left: 0;
+}
+/* fim da carrinho*/
+/*Perfil*/
+.body-perfil {
+  margin: 5%;
+}
+
+.itens-perfil {
+  width: 500px;
+  margin-left: 15%;
+}
+
+.img-perfil {
+  box-shadow: 3px 3px 5px 1px rgba(0, 0, 0, 0.299);
+  border-radius: 100%;
+  margin: 2%;
+}
+
+.section-position-perfil {
+  margin: 100px 0 0 150px;
+  display: flex;
+}
+
+.title-perfil {
+  color: #721011;
+  font-family: "Bellota Text";
+}
+
+.botao-logout {
+  margin: 10px 0 0 70%;
+  width: 30%;
+  background-color: #721011 !important;
+}
+/*final Perfil*/
+/*media avela*/
+@media screen and (max-width: 980px) {
+  .mobile {
+      display: block;
+      background-color: #B25046;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 55px;
+      margin-top: -30% !important;
+  }
+
+  .mobile-cookie {
+      display: block;
+      background-color: #83a4e2;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 55px;
+      margin-top: -30% !important;
+  }
+
+  .mobile-leite {
+      display: block;
+      background-color: #F9C09A;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 55px;
+      margin-top: -30% !important;
+  }
+
+  .circle {
+      display: none;
+  }
+
+  .circle-cookie {
+      display: none;
+  }
+
+  .circle-leite {
+      display: none;
+  }
+
+  .img-talento img {
+      width: 100% !important;
+      position: relative !important;
+  }
+
+  .img {
+      width: 350px;
+      margin-top: -40px;
+  }
+
+  .img-talento {
+      margin-bottom: 5rem;
+      width: 100% !important;
+  }
+
+  .descrição{
+      grid-template-columns: 1fr;
+      padding: 1rem !important;
+      margin: 22% 0 0 0 !important;
+      align-items: center;
+  }
+
+  .products-details {
+      position: relative;
+      width: 75%;
+      left: 15%;
+      /* top: 0%; */
+      margin-top: 15% !important;
+  }
+
+  .btn-shop {
+      background-color: #F4F1E5 !important;
+      color: black;
+      font-size: 1rem;
+      font-family: "Crimson Pro";
+      border-radius: 10px !important;
+      border: none !important;
+      padding: 2%;
+  }
+
+  .btn-cart {
+      background-color: #F4F1E5 !important;
+      color: black;
+      font-size: 1rem;
+      font-family: "Crimson Pro";
+      border-radius: 10px !important;
+      border: none !important;
+      padding: 2%;
+  }
+}
+@media only screen and (min-width: 778px) and (max-width:1174px) {
+  .topicos img {
+      display: none;
+  }
+
+  .img-logo {
+      width: 80px;
+  }
+
+
+}
+
+
+
+@media screen and (max-width:778px) {
+  .img-logo {
+      /* width: 30%; */
+      margin-left: 2%;
+      width: 70px;
+  }
+
+  .icones img {
+      width: 20px;
+  }
+
+  .topicos {
+      color: rgb(0, 0, 0) !important;
+      text-decoration: underline black !important;
+      font-size: 20px !important;
+  }
+
+  .navbar-nav {
+      padding-left: 0px !important;
+  }
+  .section-position-carrinho {
+    align-items: center;
+    align-content: center;
+    margin: 25% 0 0 10px;
+    display: block;
+  }
+
+  .card-carrinho {
+    /* align-items: center; */
+    margin: 0px 0 10px 0;
+    width: 95%;
+    align-content: center;
+    align-items: center;
+  }
+
+  .card-carrinho img {
+    width: 40%;
+  }
+
+  .card-body-carrinho {
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+  }
+
+  .price {
+    /* margin-left: 0%; */
+    display: flex;
+  }
+
+  .card-title-carrinho {
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .value-pay{
+    width: 40%;
+    height: 10px;
+  }
+
+  .price-item {
+    /* align-content: center; */
+    margin-top: 90px;
+    display: block;
+    width: 100%;
+  }
+
+  .btn-close {
+    margin-top: -5%;
+    display: inline-block;
+  }
+
+  .sopa {
+    display: block;
+  }
+
+  .finalizar{
+    margin-left: 65% !important;
+  }
+  .itens-perfil {
+    width: 94%;
+    margin-left: 2%;
+  }
+
+  .img-perfil {
+    margin: 0% 0 5% 23%;
+    width: 50%;
+    height: 50%;
+  }
+  .section-position-perfil{
+    display: block;
+    margin: 0;
+    margin-top: 25% !important;
+  }
+  .body-perfil{
+    margin-top: 25% !important;
+  }
+}
 @media only screen and (min-width: 768px) and (max-width:1548px) {
   .cards {
     width: 100%;

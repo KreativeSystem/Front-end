@@ -11,7 +11,7 @@ export const Formulario = () => {
         name: '',
         email:'',
         password: '',
-        phone: '',
+        phoneNumber: '',
         CEP: '',
         state: '',
         city: '',
@@ -35,7 +35,7 @@ export const Formulario = () => {
         await api.post('/users', data, {headers})
         .then((response)=>{
         setMensagem(response.data.mensagem)
-        return navigate('/listar')
+        return navigate('/users-list')
 
         }).catch((error)=>{
             setMensagem(error.response.data.mensagem)
@@ -88,7 +88,7 @@ export const Formulario = () => {
                         </div>
                         <div class="col-md-6">
                             <label  class="form-label">telefone</label>
-                            <input  type="number" class="form-control" id="inputCity" placeholder="(xx) xxxxx-xxxx" name="phone" pattern="^\(\d" onChange={valorInput} required/>
+                            <input  type="number" class="form-control" id="inputCity" placeholder="(xx) xxxxx-xxxx" name="phoneNumber" pattern="^\(\d" onChange={valorInput} required/>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">CEP</label>
