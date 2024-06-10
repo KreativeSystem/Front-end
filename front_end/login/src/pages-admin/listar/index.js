@@ -16,7 +16,7 @@ export const Listar = () => {
   const [editedUser, setEditedUser] = useState({
     name: '',
     email: '',
-    phoneNumber: '',
+    phone: '',
   });
   const [formComplete, setFormComplete] = useState(false);
 
@@ -103,8 +103,8 @@ export const Listar = () => {
 
   // Função para verificar se todos os campos obrigatórios estão preenchidos
   const checkFormCompleteness = (user) => {
-    const { name, email, phoneNumber, state, dwellingNumber, city, street, CEP } = user;
-    return !!(name && email && phoneNumber && state && dwellingNumber && city && street && CEP);
+    const { name, email, phone, state, dwellingNumber, city, street, CEP } = user;
+    return !!(name && email && phone && state && dwellingNumber && city && street && CEP);
   };
 
    {/* Barra de navegação da página */ }
@@ -127,7 +127,7 @@ export const Listar = () => {
               <div class="p-3 ">Listar</div>
             </div>
             <div class="col text-end">
-              <div class="p-3"><button type="button" class="btn cadastrar-listar"><a href="/formulario" >Cadastrar</a></button></div>
+              <div class="p-3"><button type="button" class="btn cadastrar-listar"><a href="/form" >Cadastrar</a></button></div>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@ export const Listar = () => {
                 <th scope="row">{user.id}</th>
                 <td>{user.name}</td>
                 <td class="d-none d-sm-table-cell">{user.email}</td>
-                <td class="d-none d-sm-table-cell">{user.phoneNumber}</td>
+                <td class="d-none d-sm-table-cell">{user.phone}</td>
                 <td className="botoes-funcao">
                 <button type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => openModal(user.id)} ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                   <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
@@ -170,7 +170,7 @@ export const Listar = () => {
                             <p>ID: {selectedUser.id}</p>
                             <p>Nome: {selectedUser.name}</p>
                             <p>Email: {selectedUser.email}</p>
-                            <p>Telefone: {selectedUser.phoneNumber}</p>
+                            <p>Telefone: {selectedUser.phone}</p>
                             <p>CEP: {selectedUser.CEP}</p>
                             <p>Estado: {selectedUser.state}</p>
                             <p>Cidade: {selectedUser.city}</p>
@@ -212,7 +212,7 @@ export const Listar = () => {
                               </div>
                               <div className="mb-3  modal-input">
                                 <label htmlFor="phoneNumber" className="form-label">Telefone</label>
-                                <input type="text" className="form-control" id="phone" name="phone" value={editedUser.phoneNumber || ''} onChange={handleChange} />
+                                <input type="text" className="form-control" id="phone" name="phone" value={editedUser.phone || ''} onChange={handleChange} />
                               </div>
                               <div className="mb-3  modal-input">
                                 <label htmlFor="state" className="form-label">Estado</label>

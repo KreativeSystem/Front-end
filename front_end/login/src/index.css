@@ -1,4 +1,4 @@
-*{
+/*{
   margin: 0;
   padding: 0;
 }
@@ -33,7 +33,7 @@
 
 .hedear-admin img{
 
-  width: 4rem;
+  width: 5rem;
   height: 4rem;
 }
 
@@ -362,20 +362,28 @@ table{
   padding-bottom: 30px;
 }
 
-/*header-inicio*/
+/* HEADER */
 
 .header{
-  background-color: rgba(0, 0, 0, 0.379);
   width: 100%;
   height: 90px;
 }
-
-.fundo img{
-    width: 100%;
-    height: 100vh;
+.tela_total{
+  height: 2300px;
 }
 
+.fundo{
+    width: 100%;
+    height: 100vh;
+    background-color: #E3DCCA;
+}
 
+.topicos{
+  color: rgb(0, 0, 0) !important;
+  font-family: "Bellota";
+  font-size: 20px !important;
+  
+}
 
 .topicos:hover{
   color: #868686 !important;
@@ -383,23 +391,24 @@ table{
 }
 
 .img-logo {
-  width: 10%;
+  width: 120px;
   margin-left: 2%;
+  margin-top: 25px;
 }
 
 .topicos {
-  color: rgb(251, 251, 251) !important;
-  font-family: "Bellota";
+  color:#721011 !important;
   
 }
 
-.navbar-nav {
-  padding-left: 50% !important;
+.quantity-control{
+  display: flex;
+  align-items: center;
 }
 
 .icones{
   margin-right: 40px;
-  width: 150px;
+
 	display: inline-block;
 }
 
@@ -409,10 +418,33 @@ table{
   width: 30px;
 }
 
+
+
  .sanduba{
   list-style: none;
-  background-color: white !important;
+  background-color: #721011 !important;
+  color: white !important;
 }
+
+.sanduba .navbar-toggler-icon{
+  /* background-image: url(/img/ion_menu.png); */
+  background-image: none;
+  padding: none;
+  padding: 0px;
+  margin: 0px;
+}
+.nav-a{
+  padding-left: 50% !important;
+}
+.topicos2{
+  display: none;
+}
+
+/* .sanduba .navbar-toggler-icon {
+  color: #ffffff !important; 
+  background-color: #6e1d1d !important;
+} */
+
 /* FIM DO HEADER */
 
 /*headear-user*/
@@ -434,8 +466,8 @@ table{
 .descrição {
   display: flex;
   flex-direction: row;
-  padding: 3rem !important;
-  margin: 5% 0 10% 12% !important;
+  padding: 1rem !important;
+  margin: 0 0 5% 5% !important;
   align-items: center;
 }
 
@@ -508,7 +540,7 @@ table{
   height: 500px;
   border-radius: 100%;
   margin-bottom: 1rem;
-  margin-right: 200px !important;
+  /* margin-right: 200px !important; */
 }
 
 .circle-leite {
@@ -551,7 +583,7 @@ table{
   flex-direction: row;
   margin-bottom: 3rem;
   font-size: 15px;
-  padding: 1.2rem 0rem;
+  margin-left: -34px;
 }
 
 .short-description {
@@ -561,14 +593,28 @@ table{
 }
 /*fim tela avela*/
 /*carrinho*/
-.section-position-carrinho {
-  margin: 130px 0 0 50px;
+.btn-finalizar-compra{
+  background-color: #721011 !important;
+  color: white !important;
+  border: none;
+  border-radius: 10%;
+  top: 90%;
+  left: 85%;
+  position: fixed;
 }
-
+.carrinho-info{
+  margin-left: 20px;
+}
+.section-position-carrinho h2{
+  font-family: "Bellota Text";
+  color: rgb(0, 0, 0);
+  font-size: 40px;
+  margin-top:10% ;
+}
 .card-carrinho {
-  margin: 10px;
-  display: flex;
-  width: 95%;
+  margin: 10px !important;
+  display: flex !important;
+  width: 95% !important;
   /* display: flex; */
   /* align-content: center; */
   /* align-items: center; */
@@ -592,13 +638,15 @@ table{
 
 .card-title-carrinho {
   width: 50%;
-  margin-left: 10%;
+  font-family: "Bellota Text";
+
 }
 
 .price-item {
   /* align-content: center; */
   width: 300px;
   height: fit-content;
+   font-family: "Bellota Text";
 }
 
 .btn-close {
@@ -613,10 +661,24 @@ table{
 .value-pay{
   margin-left: 0;
 }
+.descricao-cart{
+  display: flex;
+  flex-direction: row;
+  padding-top: 1rem !important;
+  padding-right: 3rem;
+  margin: 2% 0 10% 5% !important;
+  align-items: center;
+}
+.finalizar-cart{
+  background-color: #721011 !important;
+  color: white !important;
+  margin-right: 5%;
+}
 /* fim da carrinho*/
 /*Perfil*/
 .body-perfil {
   margin: 5%;
+  margin-top: 8%;
 }
 
 .itens-perfil {
@@ -646,6 +708,145 @@ table{
   background-color: #721011 !important;
 }
 /*final Perfil*/
+
+/* TELA_1 */
+
+.frase{
+  align-items: center;
+}
+
+.frase h1{
+  position: absolute;
+  top: 40%;
+  color: #721011;
+  font-size: 60px;
+  font-family: "Poppins";
+  text-shadow: 1rem black;
+  left: 150px;
+  font-weight: 700;
+  
+}
+
+.frase p{
+  position: absolute;
+  top: 58%;
+  color: #721011;
+  font-family: "Alegreya Sans SC";
+  width: 550px; 
+  padding: 30px;
+  font-size: 20px;
+  left: 105px;
+} 
+
+.frase img{
+  position: relative;
+  top: 150px;
+  width: 350px;
+  left: 60%;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.sobre{
+  background-color: #721011;
+}
+
+.informacoes h1{
+  font-family: "Poppins";
+  font-weight: 700;
+  color: #E3DCCA;
+  position: absolute;
+  top: 900px;
+  margin-left: 650px;
+ 
+}
+
+.informacoes p{
+  font-family: "Bellota Text";
+  color:  #E3DCCA;
+  width: 480px;
+  position: absolute;
+  top: 970px;
+  margin-left: 650px;
+  font-size: 20px;
+}
+
+.produtos{
+  background-color: #E3DCCA;
+  height: 800px;
+}
+
+.catalogo h1{
+  padding-top: 60px;
+  padding-left: 60px;
+  font-family: "Poppins";
+  font-weight: 700;
+  color: #721011;
+}
+
+
+
+
+.chocolates {
+  display: flex;
+  justify-content:space-evenly;
+  padding-top: 70px;
+    
+}
+
+.chocolate p{
+  background-color: #721011;
+  height: 80px;
+  font-family: "Bellota text";
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 27px;
+  
+}
+
+
+.chocolate img{
+ width: 350px;
+}
+
+
+
+
+.chocolate button{
+  background-color: #721011;
+  color: white;
+  font-family: "Poppins";
+  font-weight: 700;
+  padding: 10px;
+  text-decoration: none;
+  border: none;
+  border-radius: 20px;
+  margin-left: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+}
+
+.foolter{
+  background-color: #721011;
+  height: 220px;
+}
+
+.descricao1{
+    display: flex;
+    justify-content: center;
+}
+
+.row{
+  flex-wrap: none;
+}
+
+.descricao1 img {
+  width: 40px;
+  margin: 0 10px;
+  margin-top: 90px;
+}
 /*media avela*/
 @media screen and (max-width: 980px) {
   .mobile {
@@ -707,7 +908,7 @@ table{
 
   .descrição{
       grid-template-columns: 1fr;
-      padding: 1rem !important;
+     
       margin: 22% 0 0 0 !important;
       align-items: center;
   }
@@ -739,6 +940,20 @@ table{
       border: none !important;
       padding: 2%;
   }
+  .descricao-cart{
+    display: flex;
+    flex-direction: row;
+    padding-top: 1rem !important;
+    padding-right: 0px;
+    margin: 2% 0 10% 5% !important;
+    align-items: center;
+  }
+  .btn-finalizar-compra{
+  
+    top: 90%;
+    left: 80%;
+    position: fixed;
+  }
 }
 @media only screen and (min-width: 778px) and (max-width:1174px) {
   .topicos img {
@@ -747,6 +962,11 @@ table{
 
   .img-logo {
       width: 80px;
+  }
+
+  .container-card{
+    display: flex;
+    flex-direction: column;
   }
 
 
@@ -771,9 +991,7 @@ table{
       font-size: 20px !important;
   }
 
-  .navbar-nav {
-      padding-left: 0px !important;
-  }
+  
   .section-position-carrinho {
     align-items: center;
     align-content: center;
@@ -783,10 +1001,10 @@ table{
 
   .card-carrinho {
     /* align-items: center; */
-    margin: 0px 0 10px 0;
-    width: 95%;
-    align-content: center;
-    align-items: center;
+    margin: 0px 0 10px 0 !important;
+    width: 95% !important;
+    align-content: center !important;
+    align-items: center !important;
   }
 
   .card-carrinho img {
@@ -820,8 +1038,14 @@ table{
     margin-top: 90px;
     display: block;
     width: 100%;
+    
   }
-
+.price-item h4{
+  /* align-content: center; */
+  font-size: 20px;
+  width: 100%;
+  
+}
   .btn-close {
     margin-top: -5%;
     display: inline-block;
@@ -918,3 +1142,214 @@ table{
   
 
 }
+/*media landing page*/
+@media only screen and (min-width: 788px) and (max-width:1174px) {
+  .navbar-nav{
+   padding-left: 0px !important;
+  }
+ 
+  .topicos{
+    display: none;
+  }
+ 
+  .icones{
+   padding-top: 40px;
+   padding-left: 30%;
+   /* width: 300px; */
+  }
+ 
+  .img-logo{
+   width: 80px;
+   top: 30px;
+ }
+ 
+ .frase h1{
+   font-size: 30px;
+   top: 20%;
+ }
+ 
+ .frase p{
+   font-size: 10px;
+   margin-left: auto;
+   margin-right: auto; 
+   width: 270px;
+   left: 60px;
+   top: 230px;
+ }
+ 
+ .frase img{
+   top: 100px;
+   width: 160px;
+ }
+ .fundo{
+   height: 400px;
+ }
+ 
+ .informacoes h1{
+   top: 450px;
+   margin-left: 400px;
+   font-size: 30px;
+ }
+ 
+ .informacoes p{
+   margin-left: 400px;
+   top: 500px;
+   font-size: 15px;
+   width: 350px;
+ }
+ 
+ .sobre img{
+ width: 250px;
+ }
+ 
+ .chocolate img{
+   width: 200px;
+ }
+ 
+ .chocolate p{
+   width: 200px;
+   font-size: 15px;
+ }
+ 
+ .chocolate button{
+   margin-left: 50px;
+   font-size: 13px;
+ }
+ 
+ 
+ }
+ 
+ @media screen and (max-width:778px){
+   
+    .icones{
+     /* padding-top: 40px;
+     padding-left: 30px; Mudamos para porcentagem */
+     padding-top: 40px;
+     /* Ajuste conforme necessário */
+     width: 300px;
+     /* display: flex; Usa flexbox para colocar os elementos lado a lado */
+     /* align-items: center; */
+     
+    
+    }
+ 
+    .icones img{
+     width: 30px; /* Cada imagem ocupa 50% da largura do contêiner */
+     display: block;
+     margin-bottom: 40px; 
+    }
+   
+    .img-logo{
+     width: 80px;
+   }
+   
+   .frase img{
+     top: 0px;
+     padding-top: 300px;
+     width: 220px;
+     left: 100px;
+   }
+ 
+   .fundo{
+     height: 650px;
+   }
+ 
+   .frase h1{
+     font-size: 30px;
+     top: 150px;
+    
+     left: 30px;
+   }
+   
+   .frase p{
+     font-size: 20px;
+     align-items: center;
+     text-align: center;
+     left: 45px;
+     width: 320px;
+     top: 290px;
+     margin: 0 auto;
+   }
+ 
+   .topicos{
+     display: none !important;
+    }
+ 
+    .topicos2{
+     color: #721011;
+     display: inline;
+     text-decoration: none;
+     font-size: 20px;
+     top: 30px;
+    }
+   
+    
+    .text{
+     flex-grow: 1;
+    }
+ 
+    .sobre img{
+     display: none;
+    }
+ 
+    
+    .informacoes{
+     background-color: #721011;
+     height: 300px;
+    }
+ 
+    .informacoes h1{
+     margin: 0 auto;
+     top: 700px;
+     padding-left: 45px;
+     padding-right: 45px;
+     
+    }
+ 
+    .informacoes p{
+     margin: 0 auto;
+     font-size: 15px;
+     top: 750px;
+     width: 330px;
+     padding-left: 45px;
+     padding-right: 45px;
+     
+    }
+ 
+    .chocolate img{
+     width: 200px;
+   }
+ 
+   .catalogo h1{
+     padding-left: 120px;
+   }
+   
+   .chocolate p{
+     width: 200px;
+     font-size: 15px;
+   }
+   
+   .chocolate button{
+     margin-left: 50px;
+     font-size: 13px;
+   }
+ 
+   .chocolates {
+     display: inline-block;
+    padding-left: 85px;
+    padding-right: 65px;
+     padding-top: 30px;
+     justify-content: center;
+       
+   }
+ 
+   .chocolate{
+     padding-bottom: 30px;
+   }
+ 
+   .produtos{
+     height: 1350px;
+   }
+ 
+ 
+ }

@@ -33,40 +33,57 @@ export const Leite = () => {
     const navigatePerfil = () => {
         navigate('/perfil');
     };
+    const navigateSite = () => {
+        navigate('/tela-principal');
+    }
 
     return (
         <div className="body">
             {/* HEADER */}
-            <nav className="navbar navbar-expand-lg fixed-top header-2">
-                <div className="container-fluid">
-                    <img src="./img/logo-preta.png" alt="Logo" className="d-inline-block align-text-top me-auto img-logo" />
-                    <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                        <div className="offcanvas-header">
-                            <h5 className="offcanvas-title" id="offcanvasNavbarLabel"><img src="./img/logo-preta.png" alt="" className="img-logo" /></h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <nav class="navbar navbar-expand-lg fixed-top header">
+                        <div class="container-fluid">
+
+                            <img src="./img/logo.png" alt="Logo" class="d-inline-block align-text-top me-auto img-logo" onClick={navigateSite}/>
+
+
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="./img/logo-preta.png" alt="" class="img-logo" /></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <ul class="navbar-nav flex-grow-1 pe-3 nav-a">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link topicos mx-lg-2" href="#sobre">Sobre Nós</a>
+
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link topicos mx-lg-2" href="#produtos">Produtos</a>
+
+                                        </li>
+                                    </ul>
+                                    <div className="icones">
+
+                                        <a onClick={navigateCarrinho}><img src="/img/cart.png" /></a>
+                                        
+                                        <a onClick={handleLogout}><img src="/img/sair.png" /></a>
+
+                                        
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <button class="navbar-toggler sanduba" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                                {/* <span class="navbar-toggler-icon sanduba"></span> */}
+                                <img src="/img/ion_menu.png" />
+                            </button>
                         </div>
-                        <div className="offcanvas-body">
-                            <ul className="navbar-nav flex-grow-1 pe-3">
-                                <li className="nav-item">
-                                    <a className="nav-link topicos-2 mx-lg-2" href="#">Sobre Nós</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link topicos-2 mx-lg-2" href="#">Produtos</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="icones">
-                        <a href="#" onClick={navigateCarrinho}><img src="/img/cart.png" alt="Carrinho" /></a>
-                        <a href="#" onClick={navigatePerfil}><img src="/img/user.png" alt="Perfil" /></a>
-                        <a onClick={handleLogout}><img src="../img/sair.png" alt="Sair"></img> </a>
-                    </div>
-                    <button className="navbar-toggler sanduba" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-            </nav>
-            {/* FIM DO HEADER */}
+                    </nav>
+                    {/* FIM DO HEADER */}
             <div className="row descrição">
                 <div className="img-talento">
                     <img src="/img/doce_de_leite.png" className="img" alt="Talento de Doce de Leite" />

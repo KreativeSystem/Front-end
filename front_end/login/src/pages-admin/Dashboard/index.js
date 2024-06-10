@@ -44,7 +44,6 @@ export const Dashboard = () => {
         </div>
       </div>
     </div>
-   {<p>token:{token}</p>}
         </div>
     )
 }

@@ -30,7 +30,7 @@ export const Navbar = () => {
                     <div className="container-fluid">
 
                         <a className="navbar-brand" href="#">
-                            <img src="/img/LOGO.png" alt="" width="30" height="24" className="d-inline-block align-text-top" />
+                            <img src="/img/logo-branca.png" alt="" width="30" height="24" className="d-inline-block align-text-top" />
                         </a>
 
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

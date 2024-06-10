@@ -13,6 +13,7 @@ import Cookie from "../pages-user/descricao-cookie";
 import Leite from "../pages-user/descricao-leite"
 import Cart from "../pages-user/shop-cart";
 import Perfil from "../pages-user/perfil";
+import TelaPrincial from "../pages-user/landing-page";
 
 export default function RoutesAdmin(){
 
@@ -33,6 +34,7 @@ export default function RoutesAdmin(){
             <Route path ="/talento-doce-de-leite" element = {authenticated ? <Leite/> : <Navigate to = "/"/>} />
             <Route path ="/carrinho-compras" element = {authenticated ? <Cart/> : <Navigate to = "/"/>} />
             <Route path ="/perfil" element = {authenticated ? <Perfil/> : <Navigate to = "/"/>} />
+            <Route path ="/tela-principal" element = {authenticated ? <TelaPrincial/> : <Navigate to = "/"/>} />
         </Routes>
     )
 

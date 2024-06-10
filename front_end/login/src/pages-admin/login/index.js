@@ -30,7 +30,7 @@ export const Login = () => {
                 });
                 localStorage.setItem('token', (response.data.token));
                 const emailDomain = user.email.split('@')[1];
-                navigate(emailDomain === 'kreative.com' ? '/dashboard' : '/avela');
+                navigate(emailDomain === 'kreative.com' ? '/dashboard' : '/tela-principal');
                 signIn(); // Autenticar usuário após o login
             } else {
                 setStatus({

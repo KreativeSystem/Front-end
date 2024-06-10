@@ -1,3 +1,4 @@
+// Código do Produto
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from '../../Context/AuthContext';
@@ -7,6 +8,8 @@ export const Cookie = () => {
     const { handleLogout } = useContext(Context);
     const token = localStorage.getItem('token');
     const userId = token ? token : "guest";
+    const [isAddingToCart, setIsAddingToCart] = useState(false); // Estado para controlar a animação
+    const [quantity, setQuantity] = useState(1);
 
     const [cart, setCart] = useState([]);
     const [isInCart, setIsInCart] = useState(false);
@@ -19,7 +22,7 @@ export const Cookie = () => {
 
     const addToCart = () => {
         if (!isInCart) {
-            const updatedCart = [...cart, { id: 'talento_cookie', name: "Talento Cookies'n Cream - 85g", price: 20.00, image: '/img/cookie.png' }];
+            const updatedCart = [...cart, { id: 'talento_cookie', name: "Talento Cookies'n Cream - 85g", price: 20.00, image: '/img/cookie.png', quantity: quantity }];
             setCart(updatedCart);
             localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
             setIsInCart(true);
@@ -34,35 +37,56 @@ export const Cookie = () => {
         navigate('/perfil');
     };
 
+    const handleBuyNow = () => {
+        navigate('/carrinho-compras');
+    };
+
+    const navigateSite = () => {
+        navigate('/tela-principal');
+    }
+
     return (
         <div className="body">
             {/* HEADER */}
-            <nav className="navbar navbar-expand-lg fixed-top header-2">
+            <nav className="navbar navbar-expand-lg fixed-top header">
                 <div className="container-fluid">
-                    <img src="./img/logo-preta.png" alt="Logo" className="d-inline-block align-text-top me-auto img-logo" />
+
+                    <img src="./img/logo.png" alt="Logo" className="d-inline-block align-text-top me-auto img-logo" onClick={navigateSite} />
+
+
                     <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                         <div className="offcanvas-header">
                             <h5 className="offcanvas-title" id="offcanvasNavbarLabel"><img src="./img/logo-preta.png" alt="" className="img-logo" /></h5>
                             <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div className="offcanvas-body">
-                            <ul className="navbar-nav flex-grow-1 pe-3">
+                            <ul className="navbar-nav flex-grow-1 pe-3 nav-a">
+
                                 <li className="nav-item">
-                                    <a className="nav-link topicos-2 mx-lg-2" href="#">Sobre Nós</a>
+                                    <a className="nav-link topicos mx-lg-2" href="#sobre">Sobre Nós</a>
+
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link topicos-2 mx-lg-2" href="#">Produtos</a>
+                                    <a className="nav-link topicos mx-lg-2" href="#produtos">Produtos</a>
+
                                 </li>
                             </ul>
+                            <div className="icones">
+
+                                <a onClick={navigateCarrinho}><img src="/img/cart.png" /></a>
+                                <a onClick={handleLogout}><img src="/img/sair.png" /></a>
+
+                                
+                            </div>
+
+
+
                         </div>
                     </div>
-                    <div className="icones">
-                        <a href="#" onClick={navigateCarrinho}><img src="/img/cart.png" alt="Carrinho" /></a>
-                        <a href="#" onClick={navigatePerfil}><img src="/img/user.png" alt="Perfil" /></a>
-                        <a onClick={handleLogout}><img src="../img/sair.png" alt="Sair"></img> </a>
-                    </div>
+
                     <button className="navbar-toggler sanduba" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        {/* <span className="navbar-toggler-icon sanduba"></span> */}
+                        <img src="/img/ion_menu.png" />
                     </button>
                 </div>
             </nav>
@@ -72,14 +96,21 @@ export const Cookie = () => {
                     <div className="img-talento">
                         <img src="/img/cookie.png" className="img" alt="Talento Cookies'n Cream" />
                     </div>
-                    <div className="circle">
+                    <div className="circle-cookie">
                         <div className="products-details">
                             <h1 className="product-name">Talento Cookies'n Cream - 85g</h1>
-                            <h2 className="product-price">R$ 20,00</h2>
+                            <h2 className="product-price-cookie">R$ 20,00</h2>
                             <p className="short-description">Barra de chocolate ao leite saborosa e gostosa com pedacinhos de cookies e creme. Essa deliciosa combinação deixará seu dia feliz.</p>
                             <div className="btn-container">
-                                <button className="btn btn-shop" onClick={addToCart} disabled={isInCart}><img src="./img/cart.svg" alt="Adicionar ao Carrinho"></img></button>
-                                <button className="btn btn-cart">Comprar</button>
+                            <div className="quantity-control">
+                                    <button className="quantity-btn" onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+                                    <span className="quantity-value">{quantity}</span>
+                                    <button className="quantity-btn" onClick={() => setQuantity(quantity + 1)}>+</button>
+                                </div>
+                                <button className="btn btn-shop" onClick={addToCart} disabled={isInCart}>
+                                    <img src="./img/cart.svg" alt="Adicionar ao Carrinho"></img>
+                                </button>
+                                <button className="btn btn-cart" onClick={handleBuyNow}>Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -89,8 +120,15 @@ export const Cookie = () => {
                             <h2 className="product-price-cookie">R$ 20,00</h2>
                             <p className="short-description">Barra de chocolate ao leite saborosa e gostosa com pedacinhos de cookies e creme. Essa deliciosa combinação deixará seu dia feliz.</p>
                             <div className="btn-container">
-                                <button className="btn-shop" onClick={addToCart} disabled={isInCart}><img src="./img/cart.svg" alt="Adicionar ao Carrinho"></img></button>
-                                <button className="btn-cart">Comprar</button>
+                                <div className="quantity-control">
+                                    <button className="quantity-btn" onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+                                    <span className="quantity-value">{quantity}</span>
+                                    <button className="quantity-btn" onClick={() => setQuantity(quantity + 1)}>+</button>
+                                </div>
+                                <button className="btn btn-shop" onClick={addToCart} disabled={isInCart}>
+                                    <img src="./img/cart.svg" alt="Adicionar ao Carrinho"></img>
+                                </button>
+                                <button className="btn btn-cart" onClick={handleBuyNow}>Comprar</button>
                             </div>
                         </div>
                     </div>

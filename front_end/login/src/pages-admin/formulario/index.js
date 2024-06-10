@@ -11,7 +11,7 @@ export const Formulario = () => {
         name: '',
         email:'',
         password: '',
-        phoneNumber: '',
+        phone: '',
         CEP: '',
         state: '',
         city: '',
@@ -88,7 +88,7 @@ export const Formulario = () => {
                         </div>
                         <div class="col-md-6">
                             <label  class="form-label">telefone</label>
-                            <input  type="number" class="form-control" id="inputCity" placeholder="(xx) xxxxx-xxxx" name="phoneNumber" pattern="^\(\d" onChange={valorInput} required/>
+                            <input  type="number" class="form-control" id="inputCity" placeholder="(xx) xxxxx-xxxx" name="phone" pattern="^\(\d" onChange={valorInput} required/>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">CEP</label>
