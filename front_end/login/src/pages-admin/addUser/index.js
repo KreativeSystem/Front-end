@@ -84,7 +84,7 @@ export const AddUser = () => {
 
                     <div class="col-md-6 right-box">
                         <div class="row align-items-center">
-                            <div class="header-text mb-4">
+                            <div class="header-text mb-4 text-login">
                                 <h2>Cadastre-se</h2>
 
                             </div>
@@ -149,7 +149,7 @@ export const AddUser = () => {
                                 {mensagem ? <p>{mensagem}</p>: ""}
 
                         
-                                    <button class="btn btn-dark btn-lg w-100 fs-6" type="submit">Cadastrar</button>
+                                    <button class="btn btn-lg w-100 fs-6 entrar-login" type="submit">Cadastrar</button>
                             
                             </form>
                             

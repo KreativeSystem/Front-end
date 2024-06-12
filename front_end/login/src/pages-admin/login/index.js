@@ -76,7 +76,7 @@ export const Login = () => {
                     </div>
                     <div className="col-md-6 right-box">
                         <div className="row align-items-center">
-                            <div className="header-text mb-4">
+                            <div className="header-text mb-4 text-login">
                                 <h2>Faça o Login</h2>
                             </div>
                             <form onSubmit={loginSubmit}>
@@ -97,7 +97,7 @@ export const Login = () => {
                                 </div>
                                 <p className={status.type === 'success' ? "success" : "error"}>{status.mensagem}</p>
                                 {status.loading ? <p className="aguarde">Aguarde...</p> : ''}
-                                <button disabled={status.loading} className="btn btn-dark btn-lg w-100 fs-6" type="submit">ENTRAR</button>
+                                <button disabled={status.loading} className="btn  btn-lg w-100 fs-6 entrar-login" type="submit">ENTRAR</button>
                             </form>
                             <div className="input-group mb-3">
                                 <button className="btn btn-lg btn-light w-100 fs-6 cadastra-login"><a href="/addUser">Cadastre-se</a></button>

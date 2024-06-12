@@ -83,7 +83,7 @@
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid  #721011 !important;;
   outline: none;
   margin-bottom: 20px;
   color: #40414a;
@@ -94,6 +94,7 @@
   left: 10px;
   pointer-events: none;
   transition: .5s;
+  color: #721011 !important;
 }
 .input-field input:focus ~ label{
   top: -10px !important;
@@ -116,7 +117,7 @@
  
 }
 .img-login{
-  background-image: url(./../public/img/login.png);
+ background-color: #E3DCCA !important;
   background-size: 100%;
 }
 .img-fluid{
@@ -124,13 +125,24 @@
 }
 .cadastra-login a{
   text-decoration: none;
-  color: black;
+  color: #721011;
 }
 
 .errado {
   color: rgb(255, 5, 5);
   text-align: center;
   padding-top: 0px;
+}
+.text-login{
+  color: #721011 !important;
+}
+.forgot a{
+  text-decoration: none;
+  color: #721011 !important;
+}
+.entrar-login{
+  background-color: #721011 !important;
+  color: #ffffff !important;
 }
 /*------------Cadastro---------------*/
 .input-box-c{
@@ -142,6 +154,7 @@
   left: 10px;
   pointer-events: none;
   transition: .5s;
+  color: #721011 !important;
 }
 .grupo-l-c{
   display: inline-flex !important;
@@ -150,6 +163,11 @@
 .img-logo {
   width: 8%;
   margin-left: 2%;
+  margin-top: 0% !important;
+}
+.entrar button{
+  background-color: #721011 !important;
+  color: #ffffff !important;
 }
 @media only screen and (max-width: 768px){
   .box-area{
@@ -367,10 +385,9 @@ table{
 .header{
   width: 100%;
   height: 90px;
+  background-color: #E3DCCA !important;
 }
-.tela_total{
-  height: 2300px;
-}
+
 
 .fundo{
     width: 100%;
@@ -463,23 +480,23 @@ table{
 
 
 /* tela avela*/
-.descrição {
+.descricao-t {
   display: flex;
   flex-direction: row;
   padding: 1rem !important;
-  margin: 0 0 5% 5% !important;
+  margin: 7% 5% 0% 14% !important;
   align-items: center;
 }
 
 .product-name {
   font-size: 1.7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: white;
   margin-left: 20px;
   font-family: "Bellota";
 }
 
-.product-price {
+.product-price1 {
   font-size: 2rem;
   margin-bottom: 2rem;
   font-family: "Bellota Text";
@@ -502,9 +519,9 @@ table{
 .product-price-cookie {
   font-size: 2rem;
   margin-bottom: 1rem;
-  font-family: "Bellota Text";
-  color: white;
-  font-size: 20px;
+  font-family: "Bellota Text" !important;
+  color: white !important;
+  font-size: 20px !important;
   position: relative;
   left: 6%;
 }
@@ -539,7 +556,7 @@ table{
   width: 500px !important;
   height: 500px;
   border-radius: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   /* margin-right: 200px !important; */
 }
 
@@ -554,7 +571,8 @@ table{
 
 .btn-shop {
   background-color: #ffffff !important;
-  border-radius: 5% !important;
+  border-radius: 10% !important;
+  border: none;
 }
 
 .btn-cart {
@@ -583,97 +601,403 @@ table{
   flex-direction: row;
   margin-bottom: 3rem;
   font-size: 15px;
-  margin-left: -34px;
+  margin-left: -4px;
 }
 
-.short-description {
+.short-description1 {
   font-family: "Bellota Text";
-  color: white;
+  color: white !important;
   font-size: 20px;
 }
 /*fim tela avela*/
 /*carrinho*/
-.btn-finalizar-compra{
-  background-color: #721011 !important;
-  color: white !important;
-  border: none;
-  border-radius: 10%;
-  top: 90%;
-  left: 85%;
-  position: fixed;
-}
-.carrinho-info{
-  margin-left: 20px;
-}
-.section-position-carrinho h2{
-  font-family: "Bellota Text";
-  color: rgb(0, 0, 0);
-  font-size: 40px;
-  margin-top:10% ;
-}
-.card-carrinho {
-  margin: 10px !important;
-  display: flex !important;
-  width: 95% !important;
-  /* display: flex; */
-  /* align-content: center; */
-  /* align-items: center; */
+ /* Cart-css*/
+.cart-container {
+ padding: 20px;
+ max-width: 1200px;
+ margin: 0 auto;
 }
 
-.card-carrinho img {
-  width: 5%;
+.header {
+ background-color: #fff;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card-body-carrinho {
-  display: flex;
-  align-content: center;
-  align-items: center;
-
+.cart-section {
+ margin-top: 100px;
+ padding: 20px;
+ background: #f5f5f5;
+ border-radius: 5px;
 }
 
-.price {
-  margin-left: 0%;
-  display: flex;
+.cart-items {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
 }
 
-.card-title-carrinho {
-  width: 50%;
-  font-family: "Bellota Text";
-
+.cart-item {
+ display: flex;
+ align-items: center;
+ background: #fff;
+ border-radius: 5px;
+ padding: 15px;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.price-item {
-  /* align-content: center; */
-  width: 300px;
-  height: fit-content;
-   font-family: "Bellota Text";
+.cart-item-image {
+ width: 100px;
+ height: auto;
+ border-radius: 5px;
+ margin-right: 20px;
 }
 
-.btn-close {
-  margin-top: 3%;
+.cart-item-details {
+ flex: 1;
 }
 
-.finalizar{
-  margin-left: 80% !important;
-  margin-bottom: 8%;
+.cart-item-title {
+ font-size: 18px;
+ font-weight: bold;
 }
 
-.value-pay{
-  margin-left: 0;
+.cart-item-price-quantity {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ margin-top: 10px;
 }
-.descricao-cart{
-  display: flex;
-  flex-direction: row;
-  padding-top: 1rem !important;
-  padding-right: 3rem;
-  margin: 2% 0 10% 5% !important;
-  align-items: center;
+
+.cart-item-price {
+ font-size: 16px;
+ color: #333;
 }
-.finalizar-cart{
-  background-color: #721011 !important;
-  color: white !important;
-  margin-right: 5%;
+
+.quantity-control {
+ display: flex;
+ align-items: center;
 }
+
+.quantity-btn {
+ width: 30px;
+ height: 30px;
+ border: none;
+ background: #ddd;
+ cursor: pointer;
+ border-radius: 5px;
+ margin: 0 5px;
+}
+
+.quantity-value {
+ font-size: 16px;
+ font-weight: bold;
+}
+
+.remove-btn {
+ background: none;
+ border: none;
+ color: #f00;
+ cursor: pointer;
+ font-size: 14px;
+ margin-top: 10px;
+}
+
+.cart-footer {
+ margin-top: 20px;
+ padding: 20px;
+ background: #fff;
+ border-radius: 5px;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.cart-summary {
+ font-size: 16px;
+ font-weight: bold;
+}
+
+.checkout-btn {
+ padding: 10px 20px;
+ background: #007bff;
+ color: #fff;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ font-size: 16px;
+}
+
+.checkout-btn:hover {
+ background: #0056b3;
+}
+
+
+
+/* Estilos para o cabeçalho */
+.header {
+ background-color: #ffffff; /* Cor de fundo do cabeçalho */
+ color: #333333; /* Cor do texto do cabeçalho */
+}
+
+.nav-a .nav-link {
+ color: #333333; /* Cor dos links do menu */
+}
+
+/* Estilos para os ícones */
+.icones {
+ color: #333333; /* Cor dos ícones */
+}
+
+/* Estilos para o botão de carrinho */
+.cart-btn {
+ background-color: #ffffff; /* Cor de fundo do botão de carrinho */
+ color: #333333; /* Cor do texto do botão de carrinho */
+}
+
+.cart-btn:hover {
+ background-color: #cccccc; /* Cor de fundo do botão de carrinho quando passa o mouse */
+}
+
+/* Estilos para os itens do carrinho */
+.cart-item {
+ border-bottom: 1px solid #cccccc; /* Linha divisória entre os itens do carrinho */
+}
+
+.cart-item-image {
+ max-width: 100px; /* Largura máxima da imagem do produto */
+}
+
+.cart-item-details {
+ margin-left: 10px; /* Margem à esquerda dos detalhes do item */
+}
+
+.cart-item-title {
+ color: #333333; /* Cor do título do item */
+}
+
+.cart-item-price {
+ color: #333333; /* Cor do preço do item */
+}
+
+.quantity-btn {
+ background-color: #ffffff; /* Cor de fundo dos botões de quantidade */
+ color: #333333; /* Cor do texto dos botões de quantidade */
+}
+
+.quantity-btn:hover {
+ background-color: #cccccc; /* Cor de fundo dos botões de quantidade quando passa o mouse */
+}
+
+/* Estilos para o rodapé do carrinho */
+.cart-footer {
+ background-color: #f5f5f5; /* Cor de fundo do rodapé do carrinho */
+ color: #333333; /* Cor do texto do rodapé do carrinho */
+}
+
+.cart-summary {
+ margin-top: 10px; /* Margem superior do resumo do carrinho */
+}
+
+.checkout-btn {
+ background-color: #ffffff; /* Cor de fundo do botão de finalizar compra */
+ color: #333333; /* Cor do texto do botão de finalizar compra */
+}
+
+.checkout-btn:hover {
+ background-color: #cccccc; /* Cor de fundo do botão de finalizar compra quando passa o mouse */
+}
+
+/* Estilos para o cabeçalho */
+.header {
+ background-color: #f8f9fa;
+ padding: 10px 0;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.logo img {
+ cursor: pointer;
+}
+
+.nav ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+}
+
+.nav ul li {
+ display: inline-block;
+ margin-right: 20px;
+}
+
+.nav ul li a {
+ text-decoration: none;
+ color: #333;
+}
+
+.nav ul li a:hover {
+ color: #007bff;
+}
+
+.icons {
+ display: flex;
+ align-items: center;
+}
+
+.cart-icon, .logout-icon {
+ margin-right: 20px;
+}
+
+.cart-count {
+ background-color: red;
+ color: white;
+ border-radius: 50%;
+ padding: 2px 6px;
+ font-size: 10px;
+}
+
+/* Estilos para a seção de detalhes do produto */
+.product-details {
+ padding: 50px 0;
+ background-color: #721011;
+ margin-top: 50px; /* Adicionando margem superior para afastar do cabeçalho */
+}
+
+.product-info {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.product-image {
+ flex: 0 0 50%;
+}
+
+.product-description {
+ flex: 0 0 50%;
+ padding-left: 50px;
+}
+
+.product-name {
+ font-size: 24px;
+ margin-bottom: 10px;
+}
+
+.product-price {
+ font-size: 20px;
+ color: #007bff;
+ margin-bottom: 20px;
+}
+
+.short-description {
+ font-size: 16px;
+ color: #666;
+ line-height: 1.5;
+ margin-bottom: 20px;
+}
+
+.btn-container {
+ margin-top: 20px;
+}
+
+.btn {
+ cursor: pointer;
+ border: none;
+ padding: 10px 20px;
+ border-radius: 5px;
+ font-size: 16px;
+}
+
+.btn-shop {
+ background-color: #007bff;
+ color: white;
+ margin-right: 10px;
+}
+
+.btn-cart {
+ background-color: #28a745;
+ color: white;
+}
+
+.img-talento img {
+ max-width: 100%;
+ height: auto;
+ display: block;
+}
+
+.product-details {
+ padding: 50px 0;
+ background-color: #721011;
+}
+
+.product-info {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ color: white; /* Definindo a cor do texto como branco para contrastar com o fundo */
+}
+
+.product-image {
+ flex: 0 0 50%;
+}
+
+.product-description {
+ flex: 0 0 50%;
+ padding-left: 50px;
+}
+
+.product-name {
+ font-size: 24px;
+ margin-bottom: 10px;
+}
+
+.product-price {
+ font-size: 20px;
+ margin-bottom: 20px;
+}
+
+.short-description {
+ font-size: 16px;
+ line-height: 1.5;
+ margin-bottom: 20px;
+ color: #ccc; /* Ajustando a cor do texto para cinza claro */
+}
+
+.btn-container {
+ margin-top: 20px;
+}
+
+.btn {
+ cursor: pointer;
+ border: none;
+ padding: 10px 20px;
+ border-radius: 5px;
+ font-size: 16px;
+}
+
+.btn-shop {
+ background-color: #007bff;
+ color: white;
+ margin-right: 10px;
+}
+
+.btn-cart {
+ background-color: #28a745;
+ color: white;
+}
+
+.img-talento img {
+ max-width: 100%;
+ height: auto;
+ display: block;
+}
+
 /* fim da carrinho*/
 /*Perfil*/
 .body-perfil {
@@ -906,10 +1230,10 @@ table{
       width: 100% !important;
   }
 
-  .descrição{
+  .descricao-t{
       grid-template-columns: 1fr;
      
-      margin: 22% 0 0 0 !important;
+      margin: 24% 0 0 0 !important;
       align-items: center;
   }
 

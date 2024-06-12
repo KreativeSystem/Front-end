@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from '../../Context/AuthContext';
+import { motion } from "framer-motion"; // Importe motion do framer-motion
 
 export const Cookie = () => {
     const navigate = useNavigate();
@@ -26,8 +27,22 @@ export const Cookie = () => {
             setCart(updatedCart);
             localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
             setIsInCart(true);
+
+            // Ative a animação
+            setIsAddingToCart(true);
+            setTimeout(() => {
+                setIsAddingToCart(false);
+            }, 1000); // Defina o tempo para desativar a animação (1 segundo)
         }
     };
+
+    const [cartItemsCount, setCartItemsCount] = useState(0);
+
+    useEffect(() => {
+        const storedCart = JSON.parse(localStorage.getItem(`cart_${token}`)) || [];
+        const count = storedCart.reduce((total, product) => total + (product.quantity || 0), 0);
+        setCartItemsCount(count);
+    }, [token]);
 
     const navigateCarrinho = () => {
         navigate('/carrinho-compras');
@@ -63,17 +78,30 @@ export const Cookie = () => {
                             <ul className="navbar-nav flex-grow-1 pe-3 nav-a">
 
                                 <li className="nav-item">
-                                    <a className="nav-link topicos mx-lg-2" href="#sobre">Sobre Nós</a>
-
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link topicos mx-lg-2" href="#produtos">Produtos</a>
+                                    <a className="nav-link topicos mx-lg-2" onClick={navigateSite}>Início</a>
 
                                 </li>
                             </ul>
                             <div className="icones">
 
-                                <a onClick={navigateCarrinho}><img src="/img/cart.png" /></a>
+                            <a onClick={navigateCarrinho} style={{ position: 'relative' }}>
+                                            <img src="/img/cart.png" />
+                                            {cartItemsCount > 0 && (
+                                                <span style={{
+                                                    position: 'absolute',
+                                                    top: '-5px',
+                                                    right: '-5px',
+                                                    backgroundColor: 'red',
+                                                    color: 'white',
+                                                    borderRadius: '50%',
+                                                    padding: '2px 6px',
+                                                    fontSize: '10px'
+                                                }}>{cartItemsCount}</span>
+                                            )}
+                                            {cartItemsCount > 0 && (
+                                                <span className="cart-badge"></span>
+                                            )}
+                                        </a>
                                 <a onClick={handleLogout}><img src="/img/sair.png" /></a>
 
                                 
@@ -92,21 +120,21 @@ export const Cookie = () => {
             </nav>
             {/* FIM DO HEADER */}
             <section className="section-position-carrinho">
-                <div className="row descrição">
-                    <div className="img-talento">
-                        <img src="/img/cookie.png" className="img" alt="Talento Cookies'n Cream" />
-                    </div>
+                <div className="row descricao-t">
+                <motion.div
+                    className="img-talento"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1, scale: isAddingToCart ? 1.2 : 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <img src="/img/cookie.png" className="img" alt="Talento de cookie" />
+                </motion.div>
                     <div className="circle-cookie">
                         <div className="products-details">
                             <h1 className="product-name">Talento Cookies'n Cream - 85g</h1>
                             <h2 className="product-price-cookie">R$ 20,00</h2>
-                            <p className="short-description">Barra de chocolate ao leite saborosa e gostosa com pedacinhos de cookies e creme. Essa deliciosa combinação deixará seu dia feliz.</p>
+                            <p className="short-description1">Barra de chocolate ao leite saborosa e gostosa com pedacinhos de cookies e creme. Essa deliciosa combinação deixará seu dia feliz.</p>
                             <div className="btn-container">
-                            <div className="quantity-control">
-                                    <button className="quantity-btn" onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-                                    <span className="quantity-value">{quantity}</span>
-                                    <button className="quantity-btn" onClick={() => setQuantity(quantity + 1)}>+</button>
-                                </div>
                                 <button className="btn btn-shop" onClick={addToCart} disabled={isInCart}>
                                     <img src="./img/cart.svg" alt="Adicionar ao Carrinho"></img>
                                 </button>
@@ -118,13 +146,9 @@ export const Cookie = () => {
                         <div className="products-details">
                             <h1 className="product-name">Talento Cookies'n Cream - 85g</h1>
                             <h2 className="product-price-cookie">R$ 20,00</h2>
-                            <p className="short-description">Barra de chocolate ao leite saborosa e gostosa com pedacinhos de cookies e creme. Essa deliciosa combinação deixará seu dia feliz.</p>
+                            <p className="short-description1">Barra de chocolate ao leite saborosa e gostosa com pedacinhos de cookies e creme. Essa deliciosa combinação deixará seu dia feliz.</p>
                             <div className="btn-container">
-                                <div className="quantity-control">
-                                    <button className="quantity-btn" onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
-                                    <span className="quantity-value">{quantity}</span>
-                                    <button className="quantity-btn" onClick={() => setQuantity(quantity + 1)}>+</button>
-                                </div>
+                                
                                 <button className="btn btn-shop" onClick={addToCart} disabled={isInCart}>
                                     <img src="./img/cart.svg" alt="Adicionar ao Carrinho"></img>
                                 </button>

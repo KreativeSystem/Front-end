@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from '../../Context/AuthContext';
 
@@ -22,15 +22,25 @@ export const TelaPrincial = () => {
         navigate('/cookie');
     }
     function navigateLeite() {
-        navigate('/talento-doce-de-leit');
+        navigate('/talento-doce-de-leite');
     }
     const navigateSite = () => {
         navigate('/tela-principal');
     }
-    
+
     const { handleLogout } = useContext(Context);
 
     const token = localStorage.getItem('token');
+
+
+    const [cartItemsCount, setCartItemsCount] = useState(0);
+
+    useEffect(() => {
+        const storedCart = JSON.parse(localStorage.getItem(`cart_${token}`)) || [];
+        const count = storedCart.reduce((total, product) => total + (product.quantity || 0), 0);
+        setCartItemsCount(count);
+    }, [token]);
+
 
     return (
         <div>
@@ -66,12 +76,28 @@ export const TelaPrincial = () => {
                                         </li>
                                     </ul>
                                     <div className="icones">
+                                        <a onClick={navigateCarrinho} style={{ position: 'relative' }}>
+                                            <img src="/img/cart.png" />
+                                            {cartItemsCount > 0 && (
+                                                <span style={{
+                                                    position: 'absolute',
+                                                    top: '-5px',
+                                                    right: '-5px',
+                                                    backgroundColor: 'red',
+                                                    color: 'white',
+                                                    borderRadius: '50%',
+                                                    padding: '2px 6px',
+                                                    fontSize: '10px'
+                                                }}>{cartItemsCount}</span>
+                                            )}
+                                            {cartItemsCount > 0 && (
+                                                <span className="cart-badge"></span>
+                                            )}
+                                        </a>
 
-                                        <a onClick={navigateCarrinho}><img src="/img/cart.png" /></a>
-                                       
                                         <a onClick={handleLogout}><img src="/img/sair.png" /></a>
 
-                                        
+
                                     </div>
 
 
@@ -112,8 +138,8 @@ export const TelaPrincial = () => {
                         <div className="chocolates">
 
                             <div className="chocolate">
-                                <img src="/img/talento1.png" />
-                                <p>Talento castanha do para</p>
+                                <img src="/img/talento-doce-leite.png" />
+                                <p>Talento de doce de leite</p>
                                 <button className="button" onClick={navigateLeite}>COMPRAR</button>
                             </div>
 

@@ -72,7 +72,7 @@ export const RecoverPass = () => {
 
                     <div class="col-md-6 right-box">
                         <div class="row align-items-center">
-                            <div class="header-text mb-4">
+                            <div class="header-text mb-4 text-login">
                                 <h2>Redefinir senha</h2>
 
                             </div>
@@ -94,7 +94,7 @@ export const RecoverPass = () => {
                                 </div>
                                 <div class="grupo-l">
                                     <div class="input-group mb-3 entrar ">
-                                        <button type="submit" className={`btn btn-lg w-100 fs-6 btn-block ${isLoading || (!isEmailValid && !isFormValid) ? 'disabled' : ''}`} disabled={isLoading || (!isEmailValid && !isFormValid)}>Redefinir</button>
+                                        <button type="submit" className={`btn btn-lg w-100 fs-6 btn-block entrar-login ${isLoading || (!isEmailValid && !isFormValid) ? 'disabled' : ''}`} disabled={isLoading || (!isEmailValid && !isFormValid)}>Redefinir</button>
                                     </div>
                                 </div>
                             </form>

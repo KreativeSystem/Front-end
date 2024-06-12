@@ -36,13 +36,6 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      <div className="card mb-3 card4" >
-        <img src="/img/alertas.png" alt=""/>
-        <div className="card-body">
-          <h5 className="card-title">67</h5>
-          <p className="card-text">Alertas</p>
-        </div>
-      </div>
     </div>
         </div>
     )
