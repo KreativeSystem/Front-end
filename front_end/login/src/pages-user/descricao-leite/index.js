@@ -51,8 +51,21 @@ export const Leite = () => {
         navigate('/tela-principal');
     }
     const handleBuyNow = () => {
-        navigate('/carrinho-compras');
-    };
+        
+        if (!isInCart) {
+            const updatedCart = [...cart, { id: 'talento_avela', name: 'Talento de Avelãs - 85g', price: 20.00, image: '/img/talento.png', quantity: quantity }];
+            setCart(updatedCart);
+            localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
+            setIsInCart(true);
+
+            // Ative a animação
+            setIsAddingToCart(true);
+            setTimeout(() => {
+                setIsAddingToCart(false);
+            }, 1000); // Defina o tempo para desativar a animação (1 segundo)
+        }
+    navigate('/carrinho-compras');
+};
 
     return (
         <div className="body">
@@ -116,7 +129,7 @@ export const Leite = () => {
                     </nav>
                     {/* FIM DO HEADER */}
                     <section className="section-position-carrinho">
-                <div className="row descricao-t">
+                <div className="row descricao-t-l">
                     
                     <motion.div
                     className="img-talento"
@@ -141,7 +154,7 @@ export const Leite = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="mobile-cookie">
+                    <div className="mobile-leite">
                         <div className="products-details">
                             <h1 className="product-name">Talento de Doce de Leite - 85g</h1>
                             <h2 className="product-price-cookie">R$ 20,00</h2>

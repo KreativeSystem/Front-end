@@ -33,7 +33,7 @@
 
 .hedear-admin img{
 
-  width: 5rem;
+  width: 7rem;
   height: 4rem;
 }
 
@@ -47,6 +47,12 @@
 .nav-item img {
   margin-left: 40px;
   margin-right: 10px;
+}
+.sair img{
+  width: 30px;
+  height: 30px;
+  margin-right: 3px;
+  margin-top: 2px;
 }
 
 .cor-link {
@@ -481,6 +487,13 @@ table{
 
 /* tela avela*/
 .descricao-t {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem !important;
+  margin: 7% 5% 0% 14% !important;
+  align-items: center;
+}
+.descricao-t-l {
   display: flex;
   flex-direction: row;
   padding: 1rem !important;
@@ -1151,6 +1164,10 @@ table{
   padding-right: 20px;
   
 }
+.chocolate button:hover{
+  background-color: #a72426;
+}
+
 
 .foolter{
   background-color: #721011;
@@ -1233,10 +1250,15 @@ table{
   .descricao-t{
       grid-template-columns: 1fr;
      
-      margin: 24% 0 0 0 !important;
+      margin: 30% 0 0 0 !important;
       align-items: center;
   }
-
+  .descricao-t-l{
+    grid-template-columns: 1fr;
+   
+    margin: 15% 0 0 0 !important;
+    align-items: center;
+}
   .products-details {
       position: relative;
       width: 75%;

@@ -53,8 +53,21 @@ export const Cookie = () => {
     };
 
     const handleBuyNow = () => {
-        navigate('/carrinho-compras');
-    };
+        
+        if (!isInCart) {
+            const updatedCart = [...cart, { id: 'talento_avela', name: 'Talento de Avelãs - 85g', price: 20.00, image: '/img/talento.png', quantity: quantity }];
+            setCart(updatedCart);
+            localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
+            setIsInCart(true);
+
+            // Ative a animação
+            setIsAddingToCart(true);
+            setTimeout(() => {
+                setIsAddingToCart(false);
+            }, 1000); // Defina o tempo para desativar a animação (1 segundo)
+        }
+    navigate('/carrinho-compras');
+};
 
     const navigateSite = () => {
         navigate('/tela-principal');
