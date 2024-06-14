@@ -64,6 +64,9 @@ export const Login = () => {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value });
     };
+    function navigateCadrastro() {
+        navigate('/addUser');
+    }
 
     return (
         <div>
@@ -100,7 +103,7 @@ export const Login = () => {
                                 <button disabled={status.loading} className="btn  btn-lg w-100 fs-6 entrar-login" type="submit">ENTRAR</button>
                             </form>
                             <div className="input-group mb-3">
-                                <button className="btn btn-lg btn-light w-100 fs-6 cadastra-login"><a href="/addUser">Cadastre-se</a></button>
+                                <button className="btn btn-lg btn-light w-100 fs-6 cadastra-login"><a onClick={navigateCadrastro}>Cadastre-se</a></button>
                             </div>
                         </div>
                     </div>

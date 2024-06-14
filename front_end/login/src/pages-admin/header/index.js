@@ -33,7 +33,7 @@ export const Navbar = () => {
     return (
         <div>
             <header>
-                <nav className="navbar navbar-expand-lg cor-header hedear-admin ">
+                {/* <nav className="navbar navbar-expand-lg cor-header hedear-admin ">
                     <div className="container-fluid">
 
                         <a className="navbar-brand" href="#">
@@ -88,7 +88,34 @@ export const Navbar = () => {
 
                     </div>
 
-                </nav>
+                </nav> */}
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+         <img src="./img/l-preta.png" alt="Logo"  class="img-fluid  img-logo"/>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav ">
+              <li class="nav-item ">
+                <a class="nav-link " aria-current="page" href="#">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Lista</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Formulário</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><img src="./img/logout.png" alt="sair" class="img-fluid sair"/></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
 
             </header>
         </div>

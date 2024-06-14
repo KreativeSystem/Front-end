@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../Context/AuthContext";
-
+import axios from "axios";
 
 const Cart = () => {
     const navigate = useNavigate();
     const [cart, setCart] = useState([]);
     const { handleLogout } = useContext(Context);
     const token = localStorage.getItem('token');
+    const [showModal, setShowModal] = useState(false);
+    const [email, setEmail] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem(`cart_${token}`)) || [];
@@ -30,18 +33,53 @@ const Cart = () => {
 
     const navigateCarrinho = () => {
         navigate('/carrinho-compras');
-    }
-    
-
+    };
 
     const navigateSite = () => {
         navigate('/tela-principal');
-    }
+    };
 
     const isCartEmpty = cart.length === 0;
 
     const totalItems = cart.reduce((total, product) => total + (product.quantity || 0), 0);
     const totalPrice = cart.reduce((total, product) => total + (product.price * (product.quantity || 0)), 0);
+
+    const handleCheckout = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setEmail(''); // Limpa o campo de e-mail ao fechar o modal
+        setErrorMessage(''); // Limpa qualquer mensagem de erro
+    };
+
+    const confirmPurchase = async () => {
+        try {
+            const response = await axios.post('http://localhost:8081/confirmar-compra', {
+                email: email,
+                subject: 'Confirmação de Compra',
+                text: `Obrigado por sua compra! Total de ${totalItems} itens - R$ ${totalPrice.toFixed(2)}`,
+                items: cart // Envia a lista de itens do carrinho
+            });
+
+            if (response.status === 200) {
+                console.log('E-mail de confirmação enviado com sucesso:', response.data);
+                // Implemente a lógica de sucesso aqui (exemplo: exibir mensagem de sucesso)
+                alert('Email de confirmação enviado com sucesso!');
+            } else {
+                console.error('Erro ao enviar e-mail de confirmação:', response.data);
+                // Implemente a lógica de erro aqui (exemplo: exibir mensagem de erro)
+                setErrorMessage('Erro ao enviar e-mail de confirmação. Por favor, tente novamente mais tarde.');
+            }
+
+            closeModal(); // Fecha o modal após enviar a requisição
+        } catch (error) {
+            console.error('Erro ao fazer requisição:', error);
+            setErrorMessage('Erro ao processar a compra. Por favor, tente novamente mais tarde.');
+            // Implemente a lógica para exibir a mensagem de erro para o usuário
+        }
+    };
 
     return (
         <div className="cart-container">
@@ -56,10 +94,9 @@ const Cart = () => {
                         </div>
                         <div className="offcanvas-body">
                             <ul className="navbar-nav flex-grow-1 pe-3 nav-a">
-                            <li class="nav-item">
-                                            <a class="nav-link topicos mx-lg-2" onClick={navigateSite}>Início</a>
-
-                            </li>
+                                <li className="nav-item">
+                                    <a className="nav-link topicos mx-lg-2" onClick={navigateSite}>Início</a>
+                                </li>
                             </ul>
                             <div className="icones">
                                 <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -122,7 +159,30 @@ const Cart = () => {
                     <div className="cart-summary">
                         <p>{totalItems} itens - Total: R$ {totalPrice.toFixed(2)}</p>
                     </div>
-                    <button className="checkout-btn" >Finalizar Compra</button>
+                    <button className="checkout-btn" onClick={handleCheckout}>Finalizar Compra</button>
+                </div>
+            )}
+            {/* Modal */}
+            {showModal && (
+                <div className="modal show" tabIndex="-1" style={{ display: 'block' }}>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Confirmação de Compra</h5>
+                                <button type="button" className="btn-close" onClick={closeModal}></button>
+                            </div>
+                            <div className="modal-body">
+                                <p>Por favor, insira seu e-mail para receber a confirmação da compra:</p>
+                                <input type="email" className="form-control" placeholder="Seu e-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <p>Total de {totalItems} itens - R$ {totalPrice.toFixed(2)}</p>
+                                {errorMessage && <p className="text-danger">{errorMessage}</p>}
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" onClick={closeModal}>Cancelar</button>
+                                <button type="button" className="btn btn-primary" onClick={confirmPurchase}>Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

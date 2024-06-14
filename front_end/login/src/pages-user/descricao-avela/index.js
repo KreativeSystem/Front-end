@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../Context/AuthContext";
 import { motion } from "framer-motion"; // Importe motion do framer-motion
+import api from "../../config/configApi"
 
 export const Avela = () => {
     const navigate = useNavigate();

@@ -4,60 +4,10 @@
 }
 
 /*dashboard-header*/
-.dropdown-menu.show {
-  display: flex !important;
-  align-items: center;
-}
-
-.dropdown-menu[data-bs-popper] {
-  left: 86% !important;
-}
-
-.dropdown-divider {
-  padding-bottom: 30px;
-}
-
-.cor-header {
-  background-color: #771011;
-}
-
-.navbar-toggler {
-  background-color: rgb(245, 245, 245) !important;
-}
-
-.hedear-admin{
-
-  margin: 10px;
-  border-radius: 30px;
-}
-
-.hedear-admin img{
-
-  width: 7rem;
-  height: 4rem;
-}
-
-
-.nav-item {
-  display: inline;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.nav-item img {
-  margin-left: 40px;
-  margin-right: 10px;
-}
-.sair img{
+.sair{
   width: 30px;
-  height: 30px;
-  margin-right: 3px;
-  margin-top: 2px;
 }
 
-.cor-link {
-  color: white !important;
-}
 /*login*/
 /*------------ Login container ------------*/
 .box-area{
@@ -342,7 +292,7 @@ textarea{
   flex-direction: column;
 }
 .input{
-  width: 100%;
+  min-width: 100% !important;
 }
 .margem-forms{
   margin-left: 40px;
@@ -477,6 +427,9 @@ table{
 
 /* FIM DO HEADER */
 
+
+
+
 /*headear-user*/
 .header-2{
  
@@ -586,7 +539,7 @@ table{
   height: 500px;
   border-radius: 100%;
   margin-bottom: 0rem;
-  margin-right: 200px !important;
+  
 }
 
 .btn-shop {
@@ -1310,7 +1263,7 @@ table{
 }
 @media only screen and (min-width: 778px) and (max-width:1174px) {
   .topicos img {
-      display: none;
+      display: none;  
   }
 
   .img-logo {

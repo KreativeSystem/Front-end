@@ -138,19 +138,19 @@ export const TelaPrincial = () => {
                         <div className="chocolates">
 
                             <div className="chocolate">
-                                <img src="/img/talento-doce-leite.png" />
+                                <img src="https://i.im.ge/2024/06/14/KW2e0m.talento-doce-leite.png" />
                                 <p>Talento de doce de leite</p>
                                 <button className="button" onClick={navigateLeite}>COMPRAR</button>
                             </div>
 
                             <div className="chocolate">
-                                <img src="/img/talento2.png" />
+                                <img src="https://i.im.ge/2024/06/14/KW2Glf.talento2.png" />
                                 <p>Talento de avelas</p>
                                 <button onClick={navigateAvela}>COMPRAR</button>
                             </div>
 
                             <div className="chocolate">
-                                <img src="/img/talento3.png" />
+                                <img src="https://i.im.ge/2024/06/14/KWSMgr.talento3.png" />
                                 <p>Talento de cokie</p>
                                 <button onClick={navigateCookie}>COMPRAR</button>
                             </div>
@@ -171,6 +171,10 @@ export const TelaPrincial = () => {
         </div>
 
     )
+}
+
+function idProduct(idProduct) {
+    return idProduct
 }
 
 export default TelaPrincial

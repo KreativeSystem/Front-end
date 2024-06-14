@@ -46,7 +46,7 @@ export const ProductForm = () => {
         </div>
         <div className="margem-forms">
           <form className="row g-3 listar-produtos" onSubmit={sendForms}>
-            <div className="col-md-6">
+          <div className="">
               <label className="form-label">Nome</label>
               <input
                 type="text"
@@ -57,18 +57,18 @@ export const ProductForm = () => {
                 required
               />
             </div>
-            <div className="col-md-6">
+            <div className="">
               <label className="form-label">Descrição</label>
                 <textarea
                 type="text"
-                className="form-control input"
+                className="form-control input descricao"
                 placeholder="Nome do produto"
                 name="descricao"
                 onChange={valorInput}
                 required
                 ></textarea>
             </div>
-            <div className="col-md-6">
+            <div className="">
               <label className="form-label">Preço</label>
               <input
                 type="text"
