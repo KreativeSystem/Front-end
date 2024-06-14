@@ -26,13 +26,14 @@ export const Dashboard = () => {
       };
 
       // Função para buscar a contagem de produtos no localStorage
-    const fetchProductsCount = () => {
-      try {
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        setProductCount(cart.length);
-      } catch (error) {
-        console.error("Erro ao buscar a contagem de produtos:", error);
-      }
+    const fetchProductsCount = async () => {
+        const products = await api.get('/products');
+        if (!products.data.count) {
+          setProductCount(products.data.count);
+        }else{
+          console.log(products.data.error)
+        }
+        
     };
 
     fetchUserCount();

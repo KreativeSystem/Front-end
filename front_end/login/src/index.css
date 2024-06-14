@@ -337,6 +337,13 @@ table{
 textarea{
   height: 100px
 }
+.listar-produtos{
+  display: flex;
+  flex-direction: column;
+}
+.input{
+  width: 100%;
+}
 .margem-forms{
   margin-left: 40px;
   margin-right: 40px;
