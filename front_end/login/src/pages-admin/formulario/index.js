@@ -67,7 +67,7 @@ export const Formulario = () => {
                 <div class="container overflow-hidden cor-linha">
                     <div class="row gx-5">
                         <div class="col">
-                            <div class="p-3 ">Cadastrar</div>
+                            <div class="p-3 cadastrar-form"><p>Cadastrar</p></div>
                         </div>
                        
                     </div>

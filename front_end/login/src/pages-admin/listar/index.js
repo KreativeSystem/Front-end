@@ -118,14 +118,7 @@ export const Listar = () => {
         <div className="container overflow-hidden cor-linha">
           <div className="row gx-5">
             <div className="col">
-              <div className="p-3">Listar</div>
-            </div>
-            <div className="col text-end">
-              <div className="p-3">
-                <button type="button" className="btn cadastrar-listar">
-                  <a href="/form">Cadastrar</a>
-                </button>
-              </div>
+              <div className="p-3 listar"><p>Listar</p></div>
             </div>
           </div>
         </div>

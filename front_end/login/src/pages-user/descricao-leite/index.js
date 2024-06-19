@@ -48,12 +48,12 @@ export const Leite = () => {
 
    
     const navigateSite = () => {
-        navigate('/tela-principal');
+        navigate('/');
     }
     const handleBuyNow = () => {
         
         if (!isInCart) {
-            const updatedCart = [...cart, { id: 'talento_avela', name: 'Talento de Avelãs - 85g', price: 20.00, image: '/img/talento.png', quantity: quantity }];
+            const updatedCart = [...cart, { id: 'talento_leite', name: 'Talento de doce de leite - 85g', price: 20.00, image: '/img/doce_de_leite.png', quantity: quantity }];
             setCart(updatedCart);
             localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
             setIsInCart(true);

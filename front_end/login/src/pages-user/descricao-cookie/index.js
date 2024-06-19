@@ -55,7 +55,7 @@ export const Cookie = () => {
     const handleBuyNow = () => {
         
         if (!isInCart) {
-            const updatedCart = [...cart, { id: 'talento_avela', name: 'Talento de Avelãs - 85g', price: 20.00, image: '/img/talento.png', quantity: quantity }];
+            const updatedCart = [...cart, { id: 'talento_cookie', name: 'Talento Cookies n Cream - 85g', price: 20.00, image: '/img/cookie.png', quantity: quantity }];
             setCart(updatedCart);
             localStorage.setItem(`cart_${userId}`, JSON.stringify(updatedCart));
             setIsInCart(true);

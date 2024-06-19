@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../../Context/AuthContext";
 import axios from "axios";
+import api from "../../config/configApi";
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -11,6 +12,8 @@ const Cart = () => {
     const [showModal, setShowModal] = useState(false);
     const [email, setEmail] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem(`cart_${token}`)) || [];
@@ -36,7 +39,7 @@ const Cart = () => {
     };
 
     const navigateSite = () => {
-        navigate('/tela-principal');
+        navigate('/');
     };
 
     const isCartEmpty = cart.length === 0;
@@ -52,32 +55,38 @@ const Cart = () => {
         setShowModal(false);
         setEmail(''); // Limpa o campo de e-mail ao fechar o modal
         setErrorMessage(''); // Limpa qualquer mensagem de erro
+        setSuccessMessage(''); // Limpa a mensagem de sucesso
     };
 
     const confirmPurchase = async () => {
+        setLoading(true); // Inicia o estado de carregamento
         try {
             const response = await axios.post('http://localhost:8081/confirmar-compra', {
                 email: email,
                 subject: 'Confirmação de Compra',
                 text: `Obrigado por sua compra! Total de ${totalItems} itens - R$ ${totalPrice.toFixed(2)}`,
                 items: cart // Envia a lista de itens do carrinho
+            }, {
+                timeout: 5000 // Timeout de 10 segundos
             });
+
+            const compras = await api.post('/shop', { email: email, itens: JSON.stringify(cart) });
+
 
             if (response.status === 200) {
                 console.log('E-mail de confirmação enviado com sucesso:', response.data);
-                // Implemente a lógica de sucesso aqui (exemplo: exibir mensagem de sucesso)
-                alert('Email de confirmação enviado com sucesso!');
+                console.log(compras.mensagem)
+                setSuccessMessage('Obrigado por comprar na nossa loja. Confira seu Email!');
             } else {
                 console.error('Erro ao enviar e-mail de confirmação:', response.data);
-                // Implemente a lógica de erro aqui (exemplo: exibir mensagem de erro)
                 setErrorMessage('Erro ao enviar e-mail de confirmação. Por favor, tente novamente mais tarde.');
             }
-
-            closeModal(); // Fecha o modal após enviar a requisição
         } catch (error) {
             console.error('Erro ao fazer requisição:', error);
             setErrorMessage('Erro ao processar a compra. Por favor, tente novamente mais tarde.');
-            // Implemente a lógica para exibir a mensagem de erro para o usuário
+        } finally {
+            setLoading(false); // Finaliza o estado de carregamento, independentemente do resultado
+            // closeModal(); // Não fechar automaticamente, aguarda ação do usuário
         }
     };
 
@@ -165,7 +174,7 @@ const Cart = () => {
             {/* Modal */}
             {showModal && (
                 <div className="modal show" tabIndex="-1" style={{ display: 'block' }}>
-                    <div className="modal-dialog">
+                    <div className="modal-dialog modal-fullscreen-sm-down">
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title">Confirmação de Compra</h5>
@@ -178,8 +187,15 @@ const Cart = () => {
                                 {errorMessage && <p className="text-danger">{errorMessage}</p>}
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={closeModal}>Cancelar</button>
-                                <button type="button" className="btn btn-primary" onClick={confirmPurchase}>Confirmar</button>
+                                {!successMessage && (
+                                    <>
+                                        {loading ? 'Enviando...' : ''}
+                                        <button type="button" className="btn btn-secondary" onClick={closeModal}>Cancelar</button>
+                                        <button type="button" className="btn btn-primary" onClick={confirmPurchase}>
+                                            Confirmar
+                                        </button>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>

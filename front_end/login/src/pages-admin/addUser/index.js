@@ -35,7 +35,7 @@ export const AddUser = () => {
         await api.post('/users', data, { headers })
             .then((response) => {
                 setMensagem(response.data.mensagem)
-                return navigate('/')
+                return navigate('/login')
 
             }).catch((error) => {
                 setMensagem(error.response.data.mensagem)
@@ -154,7 +154,7 @@ export const AddUser = () => {
                             </form>
                             
                             <div class="row">
-                                <small>Já tem uma conta? <a href="/">Entrar</a></small>
+                                <small>Já tem uma conta? <a href="/login">Entrar</a></small>
                             </div>
                         </div>
                     </div>

@@ -30,7 +30,7 @@ export const Login = () => {
                 });
                 localStorage.setItem('token', (response.data.token));
                 const emailDomain = user.email.split('@')[1];
-                navigate(emailDomain === 'kreative.com' ? '/dashboard' : '/tela-principal');
+                navigate(emailDomain === 'kreative.com' ? '/dashboard' : '/');
                 signIn(); // Autenticar usuário após o login
             } else {
                 setStatus({
@@ -93,11 +93,11 @@ export const Login = () => {
                                         <label htmlFor="pass">Senha</label>
                                     </div>
                                 </div>
-                                <div className="input-group mb-5 d-flex justify-content-between">
+                                {/* <div className="input-group mb-5 d-flex justify-content-between">
                                     <div className="forgot">
                                         <small><a href="/recoverPass">Esqueci a senha</a></small>
                                     </div>
-                                </div>
+                                </div> */}
                                 <p className={status.type === 'success' ? "success" : "error"}>{status.mensagem}</p>
                                 {status.loading ? <p className="aguarde">Aguarde...</p> : ''}
                                 <button disabled={status.loading} className="btn  btn-lg w-100 fs-6 entrar-login" type="submit">ENTRAR</button>

@@ -6,32 +6,43 @@ export const TelaPrincial = () => {
 
     const navigate = useNavigate();
 
-    function navigateCarrinho() {
-        navigate('/carrinho-compras');
+    const navigateCarrinho = () => {
+        if (!token) {
+            navigate('/login');
+        } else {
+            navigate('/carrinho-compras');
+        }
     }
 
-    function navigatePerfil() {
-        navigate('/perfil');
-    }
+   
 
-    function navigateAvela() {
+    const navigateAvela = () => {
         navigate('/avela');
     }
 
-    function navigateCookie() {
+    const navigateCookie = () => {
         navigate('/cookie');
     }
-    function navigateLeite() {
+
+    const navigateLeite = () => {
         navigate('/talento-doce-de-leite');
     }
+
     const navigateSite = () => {
-        navigate('/tela-principal');
+        navigate('/');
+    }
+
+    const navigateLogin = () => {
+        navigate('/login');
+    }
+
+    const navigateCadastro = () => {
+        navigate('/addUser');
     }
 
     const { handleLogout } = useContext(Context);
 
     const token = localStorage.getItem('token');
-
 
     const [cartItemsCount, setCartItemsCount] = useState(0);
 
@@ -41,38 +52,26 @@ export const TelaPrincial = () => {
         setCartItemsCount(count);
     }, [token]);
 
-
     return (
         <div>
             <div className="tela_total">
-
-
                 <div className="fundo">
-
-
-
                     {/* HEADER */}
-                    <nav class="navbar navbar-expand-lg fixed-top header">
-                        <div class="container-fluid">
-
-                            <img src="./img/logo.png" alt="Logo" class="d-inline-block align-text-top me-auto img-logo" onClick={navigateSite} />
-
-
-                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                                <div class="offcanvas-header">
-                                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="./img/logo-preta.png" alt="" class="img-logo" /></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <nav className="navbar navbar-expand-lg fixed-top header">
+                        <div className="container-fluid">
+                            <img src="./img/logo.png" alt="Logo" className="d-inline-block align-text-top me-auto img-logo" onClick={navigateSite} />
+                            <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                                <div className="offcanvas-header">
+                                    <h5 className="offcanvas-title" id="offcanvasNavbarLabel"><img src="./img/logo-preta.png" alt="" className="img-logo" /></h5>
+                                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
-                                <div class="offcanvas-body">
-                                    <ul class="navbar-nav flex-grow-1 pe-3 nav-a">
-
-                                        <li class="nav-item">
-                                            <a class="nav-link topicos mx-lg-2 " href="#sobre">Sobre Nós</a>
-
+                                <div className="offcanvas-body">
+                                    <ul className="navbar-nav flex-grow-1 pe-3 nav-a">
+                                        <li className="nav-item">
+                                            <a className="nav-link topicos mx-lg-2" href="#sobre">Sobre Nós</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link topicos mx-lg-2" href="#produtos">Produtos</a>
-
+                                        <li className="nav-item">
+                                            <a className="nav-link topicos mx-lg-2" href="#produtos">Produtos</a>
                                         </li>
                                     </ul>
                                     <div className="icones">
@@ -90,40 +89,31 @@ export const TelaPrincial = () => {
                                                     fontSize: '10px'
                                                 }}>{cartItemsCount}</span>
                                             )}
-                                            {cartItemsCount > 0 && (
-                                                <span className="cart-badge"></span>
-                                            )}
                                         </a>
-
-                                        <a onClick={handleLogout}><img src="/img/sair.png" /></a>
-
-
+                                        {token ? (
+                                            <a onClick={handleLogout}><img src="/img/sair.png" /></a>
+                                        ) : (
+                                            <>
+                                                <button className="btn" onClick={navigateLogin}>Login</button>
+                                                <button className="btn sing-up" onClick={navigateCadastro}>Sing-up</button>
+                                            </>
+                                        )}
                                     </div>
-
-
-
                                 </div>
                             </div>
-
-                            <button class="navbar-toggler sanduba" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                                {/* <span class="navbar-toggler-icon sanduba"></span> */}
+                            <button className="navbar-toggler sanduba" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                                 <img src="/img/ion_menu.png" />
                             </button>
                         </div>
                     </nav>
                     {/* FIM DO HEADER */}
-                    <div className="tela_inicial" >
+                    <div className="tela_inicial">
                         <div className="frase">
-
                             <h1>Chocolate é amor <br />em forma de <br />doce.</h1>
-
-
                             <img src="/img/chocolate.png" />
                         </div>
-
                     </div>
                 </div>
-
                 <div className="sobre" id="sobre">
                     <img src="/img/cacau.png" />
                     <div className="informacoes">
@@ -134,47 +124,82 @@ export const TelaPrincial = () => {
                 <div className="produtos" id="produtos">
                     <div className="catalogo">
                         <h1>Produtos</h1>
-
                         <div className="chocolates">
-
                             <div className="chocolate">
-                                <img src="https://i.im.ge/2024/06/14/KW2e0m.talento-doce-leite.png" />
+                                <img src="/img/talento-doce-leite.png" />
                                 <p>Talento de doce de leite</p>
-                                <button className="button" onClick={navigateLeite}>COMPRAR</button>
-                            </div>
 
-                            <div className="chocolate">
-                                <img src="https://i.im.ge/2024/06/14/KW2Glf.talento2.png" />
-                                <p>Talento de avelas</p>
-                                <button onClick={navigateAvela}>COMPRAR</button>
-                            </div>
+                                {token ? (
+                                    <button className="dropdown1" onClick={navigateLeite}>Comprar</button>
+                                ) : (
+                                    <>
+                                        <div class="dropdown dropdown1">
+                                            <button class="btn  dropdown-toggel " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                COMPRAR
+                                            </button>
+                                            <ul class="dropdown-menu dropdownmenu1">
 
-                            <div className="chocolate">
-                                <img src="https://i.im.ge/2024/06/14/KWSMgr.talento3.png" />
-                                <p>Talento de cokie</p>
-                                <button onClick={navigateCookie}>COMPRAR</button>
-                            </div>
+                                            <li><a class="dropdown-item " onClick={navigateLogin}>Login </a></li>
+                                            <li><a class="dropdown-item sing" onClick={navigateCadastro}>Cadastro</a></li>
+                                        </ul>
+                                        </div>
+                                    </>
+                                )}
 
+                            
+                        </div>
+                        <div className="chocolate">
+                            <img src="/img/talento2.png" />
+                            <p>Talento de avelas</p>
+                            {token ? (
+                                    <button className="dropdown1" onClick={navigateAvela}>Comprar</button>
+                                ) : (
+                                    <>
+                                        <div class="dropdown dropdown1">
+                                            <button class="btn  dropdown-toggel " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                COMPRAR
+                                            </button>
+                                            <ul class="dropdown-menu dropdownmenu1">
+
+                                            <li><a class="dropdown-item " onClick={navigateLogin}>Login </a></li>
+                                            <li><a class="dropdown-item sing" onClick={navigateCadastro}>Cadastro</a></li>
+                                        </ul>
+                                        </div>
+                                    </>
+                                )}
+                        </div>
+                        <div className="chocolate">
+                            <img src="/img/talento3.png" />
+                            <p>Talento de cokie</p>
+                            {token ? (
+                                    <button className="dropdown1" onClick={navigateCookie}>Comprar</button>
+                                ) : (
+                                    <>
+                                        <div class="dropdown dropdown1">
+                                            <button class="btn  dropdown-toggel " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                COMPRAR
+                                            </button>
+                                            <ul class="dropdown-menu dropdownmenu1">
+
+                                            <li><a class="dropdown-item " onClick={navigateLogin}>Login </a></li>
+                                            <li><a class="dropdown-item sing" onClick={navigateCadastro}>Cadastro</a></li>
+                                        </ul>
+                                        </div>
+                                    </>
+                                )}
                         </div>
                     </div>
                 </div>
-
-                <div className="foolter">
-                    <div className="descricao1">
-                        <a><img src="/img/likedin.png" /></a>
-                        <a><img src="/img/email.png" /></a>
-                    </div>
-
+            </div>
+            <div className="foolter">
+                <div className="descricao1">
+                    <a><img src="/img/likedin.png" /></a>
+                    <a><img src="/img/email.png" /></a>
                 </div>
-
             </div>
         </div>
-
+        </div >
     )
 }
 
-function idProduct(idProduct) {
-    return idProduct
-}
-
-export default TelaPrincial
+export default TelaPrincial;
